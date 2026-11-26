@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JIGS CARE · Find a licensed adult family home in Washington</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Search all 6,296 licensed adult family homes in Washington, with state license and inspection links, open beds and prices from owners. Free for families, free for caregivers, free for every home to list.">
+<link rel="canonical" href="https://jigscare.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JIGS CARE">
+<meta property="og:title" content="JIGS CARE · Find a licensed adult family home in Washington">
+<meta property="og:description" content="Every licensed adult family home in Washington, with state license and inspection links. Free for families.">
+<meta property="og:image" content="https://jigscare.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#F8F4EF">
+<style>
+/* JIGS CARE (Nov 2026): warm cream layout + MVP brand (traced logo, logo-matched colours, DM Sans throughout).
+   The original rules below still set structure; the "WARM THEME" layer at the end of this stylesheet sets the look.
+   VOICE everyday and tender: families choosing a home for a parent, owners proving theirs
+   IDEA the JIGS CARE mark itself, a house holding a person, as the listing card and the badge
+   PICTURE the working directory of every licensed Washington home, each card with a small drawn house
+   COLOUR logo teal #007A80 (deep #007A80 for bands and buttons), logo red #FA746E for accents, #D91F35 for red buttons
+   TYPE DM Sans throughout, 600 for headings
+   LAYOUT navy header band, modest title with live counts, search row, cards grid; profile and claim flow in calm columns */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#04202b);--ink:light-dark(#0b2530,#e8f3f7);--navy:#007A80;--teal:light-dark(#007A80,#4cc3e3);--coral:#FA746E;--cta:#d91f35;--coralInk:light-dark(#c8162c,#ff8a95);--mist:light-dark(#eef4f7,#0b2d40);--line:light-dark(#d3e3ea,#1d4459);--muted:light-dark(#4b6472,#a9c0cb);--card:light-dark(#ffffff,#082a3c);--ok:light-dark(#1f7a5a,#6fd3a8)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(4vw,16px)}
+header{background:var(--bg);color:var(--ink);border-bottom:1.5px solid var(--line);position:relative;z-index:2}
+header .wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{height:46px;width:auto}
+.brand b{font:800 25px/1 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.01em;color:var(--teal)}
+.brand b em{font-style:normal;color:var(--coral)}
+.mk-d{display:none}
+:root[data-theme=dark] .mk-l{display:none}:root[data-theme=dark] .mk-d{display:block}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .mk-l{display:none}:root:not([data-theme=light]) .mk-d{display:block}}
+.brand small{display:block;font-size:12.5px;color:var(--muted);margin-top:5px;font-weight:600}
+nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none;padding:10px 14px;border-radius:999px;font-weight:600;font-size:15px}
+nav a.on,nav a:hover{background:var(--mist);color:var(--ink)}
+nav a.cta{background:var(--cta);color:#fff}
+nav a.cta:hover{background:var(--cta);filter:brightness(1.08)}
+.sample{background:var(--mist);color:var(--muted);font-size:13px;text-align:center;padding:6px 16px}
+h1,h2,h3{font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:800;line-height:1.08;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,4.4vw,46px)}
+h2{font-size:clamp(24px,3vw,32px)}
+h3{font-size:20px}
+.view{display:none;padding-block:clamp(24px,4vw,48px)}
+.view.on{display:block}
+.lede{color:var(--muted);max-width:66ch;margin:10px 0 18px}
+.stats{display:flex;flex-wrap:wrap;gap:10px 28px;margin:0 0 18px}
+.stats div{font-size:14px;color:var(--muted)}
+.stats b{display:block;font:700 28px/1.1 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}
+.search{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);gap:10px;background:var(--mist);padding:12px;border-radius:16px}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;min-height:46px;width:100%}
+textarea{min-height:96px;resize:vertical}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible,.card:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+button{font:inherit;font-weight:700;min-height:46px;padding:10px 18px;border-radius:10px;border:0;cursor:pointer;background:var(--navy);color:#fff}
+button.pri{background:var(--cta);color:#fff}
+button.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+button:hover{filter:brightness(1.08)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.chip{min-height:40px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-weight:600;font-size:14px}
+.chip[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+:root[data-theme=dark] .chip[aria-pressed=true]{background:var(--coral);border-color:var(--coral)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0}
+.bar p{margin:0;color:var(--muted)}
+.bar select{width:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:18px}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s,box-shadow .2s}
+@media(hover:hover){.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px #007A8022}}
+.card:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.thumb{height:120px;background:var(--mist);position:relative}
+.thumb svg{width:100%;height:100%;display:block}
+.open{position:absolute;top:12px;left:12px;background:var(--coral);color:#fff;font-weight:700;font-size:13px;padding:5px 10px 5px 24px;border-radius:999px}
+.open::before{content:"";position:absolute;left:10px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#fff;animation:pulse 1.8s infinite}
+.kind{position:absolute;top:12px;right:12px;background:var(--card);color:var(--ink);font-weight:600;font-size:12px;padding:4px 9px;border-radius:999px}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #ffffffcc}70%{box-shadow:0 0 0 8px #ffffff00}100%{box-shadow:0 0 0 0 #ffffff00}}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.meta{color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tag{font-size:13px;background:var(--mist);padding:3px 9px;border-radius:999px}
+.ver{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--ok)}
+.ver svg{width:16px;height:16px;flex:none}
+.foot{margin-top:auto;padding-top:8px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px}
+.empty,.loading{padding:40px;text-align:center;background:var(--mist);border-radius:16px;color:var(--muted);grid-column:1/-1}
+.state{grid-column:1/-1;display:grid;justify-items:center;gap:10px;text-align:center;padding:clamp(24px,5vw,48px) 20px;background:var(--mist);border-radius:18px}
+.state svg{width:min(220px,60vw);height:auto}
+.state h3{margin:4px 0 0}
+.state p{margin:0;color:var(--muted);max-width:46ch}
+.state .acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+.sk{background:var(--card);border:1.5px solid var(--line);border-radius:18px;overflow:hidden}
+.sk i{display:block;background:var(--mist);border-radius:8px;margin:12px 16px;height:14px;animation:skp 1.4s ease-in-out infinite alternate}
+.sk i.ph{margin:0;border-radius:0;height:130px}
+.sk i.t{height:22px;width:70%}
+.sk i.s{width:45%}
+.stats .skb{display:block;width:110px;height:46px;border-radius:8px;background:var(--mist);animation:skp 1.4s ease-in-out infinite alternate}
+@keyframes skp{from{opacity:1}to{opacity:.45}}
+.bad{border-color:var(--coralInk)!important;background:color-mix(in srgb,var(--coral) 7%,var(--card))}
+.ferr{margin:0;color:var(--coralInk);font-size:14px;font-weight:600;min-height:0}
+.ferr:empty{display:none}
+.fmsg{display:block;color:var(--coralInk);font-size:13px;font-weight:600}
+.fmsg:empty{display:none}
+.more{display:flex;justify-content:center;margin-top:22px}
+.col{max-width:760px}
+.back{background:none;color:var(--ink);padding:0;min-height:44px;font-weight:600;text-decoration:underline}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:start;margin-top:12px}
+.hero .thumb{height:220px;border-radius:18px;overflow:hidden}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0}
+.fact{background:var(--mist);border-radius:12px;padding:10px 12px}
+.fact span{display:block;font-size:13px;color:var(--muted)}
+.fact b{font-size:17px}
+.panel{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:18px}
+.panel+.panel{margin-top:16px}
+.panel h3{margin-bottom:10px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.links a{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border:1.5px solid var(--line);border-radius:10px;font-weight:600;text-decoration:none}
+form{display:grid;gap:12px}
+label{font-weight:600;font-size:15px;display:grid;gap:6px}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.check{display:flex;align-items:center;gap:8px;font-weight:500}
+.check input{width:20px;height:20px;min-height:0}
+.note{font-size:13px;color:var(--muted);margin:0}
+.done{background:color-mix(in srgb,var(--ok) 12%,var(--card));border:1.5px solid var(--ok);border-radius:12px;padding:12px 14px}
+.steps{display:flex;gap:8px;margin:18px 0 22px;flex-wrap:wrap;padding:0;list-style:none}
+.steps li{flex:1 1 120px;border-top:4px solid var(--line);padding-top:8px;font-size:14px;font-weight:600;color:var(--muted)}
+.steps li.on{border-color:var(--coral);color:var(--ink)}
+.steps li.past{border-color:var(--navy);color:var(--ink)}
+:root[data-theme=dark] .steps li.past{border-color:var(--ok)}
+.pick{display:grid;gap:8px;margin-top:10px}
+.pick button{background:var(--card);color:var(--ink);border:1.5px solid var(--line);text-align:left;font-weight:500;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pick button b{font-weight:700}
+.badge{display:block;margin:8px auto 16px;width:150px;height:150px}
+.badge circle.ring{stroke-dasharray:440;stroke-dashoffset:440;animation:draw 1s .1s ease-out forwards}
+.badge path.tick{stroke-dasharray:80;stroke-dashoffset:80;animation:draw .5s .9s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.prov{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.prov .panel p{margin:6px 0 0;color:var(--muted)}
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
+.tier .amt{font:700 34px/1 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;margin:8px 0}
+.tier ul{padding-left:18px;margin:8px 0 0}
+.tier.hi{border-color:var(--coral)}
+.hs{margin-top:clamp(40px,6vw,72px)}
+.hs>h2{margin-bottom:8px}
+.hs>.lede{margin-top:0}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s}
+.how li{list-style:none;background:var(--mist);border-radius:18px;padding:20px;display:grid;gap:8px;align-content:start}
+.how svg{width:56px;height:56px}
+.how b{font:700 19px/1.2 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+.how p{margin:0;color:var(--muted)}
+.how ol,.how{padding:0;margin:0}
+.trust{background:var(--navy);color:#fff;border-radius:22px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:24px;align-items:start}
+.trust h2{color:#fff}
+.trust .tf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.trust .tf div{border-top:3px solid var(--coral);padding-top:12px}
+.trust .tf b{display:block;font-size:17px;margin-bottom:4px}
+.trust .tf span{color:#d3e3ea;font-size:15px}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.duo .panel{padding:clamp(20px,3vw,30px);display:grid;gap:10px;align-content:start}
+.duo .panel p{margin:0;color:var(--muted)}
+.duo .own{background:color-mix(in srgb,var(--coral) 12%,var(--card));border-color:color-mix(in srgb,var(--coral) 45%,var(--line))}
+.duo .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.duo .acts a{display:inline-flex;align-items:center;min-height:46px;font-weight:700}
+.big{font:700 clamp(30px,4vw,40px)/1 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--coralInk)}
+.counties{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:8px;padding:0;margin:0;list-style:none}
+.counties a{display:flex;justify-content:space-between;gap:8px;min-height:44px;align-items:center;padding:8px 14px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;font-weight:600;background:var(--card)}
+.counties a:hover{border-color:var(--coral)}
+.counties a span{color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+footer{background:var(--navy);color:#d3e3ea;margin-top:clamp(40px,6vw,72px)}
+footer .wrap{padding-block:clamp(28px,4vw,44px)}
+.fcols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:24px;font-size:15px}
+.fcols b{display:block;color:#fff;margin-bottom:8px}
+.fcols a{display:block;color:#d3e3ea;text-decoration:none;padding:5px 0}
+.fcols a:hover{color:#fff;text-decoration:underline}
+.fcols p{margin:0 0 8px}
+.fbrand{font:700 22px/1 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.fbrand img{height:36px;width:auto}
+.fbase{border-top:1px solid #ffffff26;margin-top:24px;padding-top:16px;font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.qhero{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,4vw,40px);align-items:center}
+.seal{width:clamp(120px,18vw,170px);aspect-ratio:1;border-radius:50%;background:var(--navy);display:grid;place-items:center;position:relative;box-shadow:0 0 0 6px var(--bg),0 0 0 9px var(--teal)}
+.seal svg{position:absolute;inset:0;width:100%;height:100%}
+.seal img{width:38%;height:auto;margin-top:-6%}
+.qb{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:999px;padding:5px 12px 5px 6px;font-weight:800;font-size:14px;text-decoration:none}
+.qb img{width:22px;height:22px;object-fit:contain;background:#fff;border-radius:50%;padding:2px}
+.qcrit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0;margin:18px 0 0;list-style:none;counter-reset:q}
+.qcrit li{counter-increment:q;background:var(--mist);border-radius:16px;padding:16px 18px 16px 58px;position:relative}
+.qcrit li::before{content:counter(q);position:absolute;left:16px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px}
+.qcrit b{display:block;font-size:17px;margin-bottom:3px}
+.qcrit p{margin:0;color:var(--muted);font-size:15px}
+.qcrit .qhow{display:block;margin-top:6px;font-size:13px;font-weight:600;color:var(--teal)}
+.qrules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.qrules .panel p{margin:6px 0 0;color:var(--muted)}
+.qrules .panel,.prov .panel,.tiers .panel,.duo .panel{margin-top:0}
+.meter{display:grid;gap:10px}
+.mbar{height:12px;border-radius:999px;background:var(--mist);overflow:hidden}
+.mbar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--ok));border-radius:999px;transition:width .6s cubic-bezier(.2,.7,.3,1)}
+.mlist{list-style:none;padding:0;margin:4px 0 0;display:grid;gap:6px}
+.mlist li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;align-items:start;font-size:15px}
+.mlist li svg{width:22px;height:22px;margin-top:1px}
+.mlist li small{display:block;color:var(--muted);font-size:13px}
+.mlist li.met span{color:var(--muted)}
+@media(max-width:820px){.qcrit,.qrules{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.qhero{grid-template-columns:minmax(0,1fr);justify-items:start}}
+.trk{margin-top:clamp(32px,5vw,56px)}
+.trk .panel{padding:clamp(18px,3vw,28px)}
+.trk-sum{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+.tbl{overflow-x:auto}
+.tbl table{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th{text-align:left;font-size:13px;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:1.5px solid var(--line)}
+.tbl td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl td small{display:block;color:var(--muted);font-size:13px;margin-top:3px}
+.tbl td.nm{white-space:nowrap;font-weight:700}
+.dt{white-space:nowrap;font-variant-numeric:tabular-nums}
+.st{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.st-ok{background:color-mix(in srgb,var(--ok) 15%,var(--card));color:var(--ok)}
+.st-soon{background:light-dark(#fff4d6,#3a3010);color:light-dark(#8a5a00,#f5c86a)}
+.st-late{background:color-mix(in srgb,var(--coral) 14%,var(--card));color:var(--coralInk)}
+.rm{background:none;color:var(--muted);min-height:44px;padding:6px 10px;font-weight:600;text-decoration:underline}
+.addrow{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr)) auto;gap:10px;align-items:end;margin-top:16px}
+.addrow label{font-size:14px}
+.selfchk{margin-top:12px;padding:14px;border-radius:12px;background:var(--mist);display:grid;gap:6px}
+.selfchk a{font-weight:700;color:var(--teal)}
+@media(max-width:820px){.addrow{grid-template-columns:repeat(2,minmax(0,1fr))}.addrow .wide{grid-column:1/-1}}
+@media(max-width:600px){.tbl thead{display:none}.tbl tr{display:grid;padding:10px 0;border-bottom:1px solid var(--line)}.tbl td{border:0;padding:4px 0;display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:8px}.tbl td::before{content:attr(data-l);color:var(--muted);font-size:13px;font-weight:600}.tbl td.nm::before{content:none}.tbl td.nm{display:block;font-weight:700}.tbl .st{white-space:normal}.tbl td:last-child{display:block}}
+/* readability for older adults: larger base text, darker secondary text, optional larger-text mode */
+:root{--muted:light-dark(#3a5260,#bfd2db)}
+body{font-size:17px}
+.note{font-size:14px}
+.meta{font-size:15px}
+html.big body{zoom:1.15}
+.tsz{background:none;color:var(--ink);min-height:36px;padding:4px 12px;border:1.5px solid var(--line);border-radius:999px;font-size:14px;font-weight:700;margin-left:10px}
+.tsz[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.sample{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px 0}
+.hl{background:color-mix(in srgb,var(--teal) 12%,var(--card));border-left:5px solid var(--teal);border-radius:12px;padding:12px 16px;font-size:18px;font-weight:800;margin:0 0 10px;color:var(--ink)}
+.search{border-radius:16px 16px 0 0}
+.search2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;background:var(--mist);padding:0 12px 12px;border-radius:0 0 16px 16px}
+.search2 select{margin-top:4px}
+.search2 label{font-size:14px;font-weight:600;color:var(--muted)}
+.vline{font-size:14px;color:var(--muted)}
+.vbox{background:var(--mist);border-radius:12px;padding:12px 14px;margin:10px 0 0;font-size:15px;line-height:1.6}
+.vbox a{font-weight:700;color:var(--teal)}
+.how{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;margin-top:14px}
+.tools a{display:grid;gap:4px;padding:16px;border-radius:16px;background:var(--mist);text-decoration:none;border:1.5px solid transparent}
+.tools a:hover{border-color:var(--teal)}
+.tools b{font-size:17px}
+.tools span{color:var(--muted);font-size:14px}
+.ckgrp{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 12px}
+.ck{position:relative;display:inline-flex}
+.ck input{position:absolute;opacity:0;width:1px;height:1px}
+.ck span{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);font-weight:600;font-size:15px;cursor:pointer}
+.ck input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+.ck input:focus-visible+span{outline:3px solid var(--coral);outline-offset:2px}
+legend{font-weight:700;font-size:15px;margin-bottom:4px;padding:0}
+fieldset{border:0;padding:0;margin:0}
+.inq{padding:14px 0;border-bottom:1px solid var(--line);display:grid;gap:6px}
+.inq:last-child{border-bottom:0}
+.inq .acts{display:flex;gap:8px;flex-wrap:wrap}
+.pol{display:grid;gap:4px;margin-bottom:18px}
+.pol b{font-size:16px}
+.pol small{color:var(--muted);font-size:14px}
+.warn{background:light-dark(#fff4d6,#3a3010);color:light-dark(#6b4500,#f5c86a);border-radius:12px;padding:12px 14px;font-weight:600;font-size:15px}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-weight:500;font-size:16px}
+.chk input{width:22px;height:22px;min-height:0;margin-top:2px;flex:none}
+.chk small{display:block;color:var(--muted);font-size:13px}
+.job{display:grid;gap:6px}
+.match{background:color-mix(in srgb,var(--ok) 12%,var(--card));border:1.5px solid color-mix(in srgb,var(--ok) 45%,var(--line));border-radius:12px;padding:10px 14px;font-size:15px}
+.prose h2{margin-top:26px}
+.prose p,.prose li{max-width:70ch}
+@media(max-width:1000px){.how{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.how{grid-template-columns:minmax(0,1fr)}.search2{grid-template-columns:minmax(0,1fr)}.tsz{margin-left:0}}
+@media print{header,footer,#banner,nav,button,.tsz,.acts,.links,.no-print{display:none!important}.view{display:none!important}.view.on{display:block!important}body{zoom:1;background:#fff;color:#000}.panel{border:0;box-shadow:none;break-inside:avoid}textarea{border:1px solid #ccc;resize:none}}
+@media(max-width:820px){.how,.trust,.trust .tf,.duo{grid-template-columns:minmax(0,1fr)}.fcols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.fcols{grid-template-columns:minmax(0,1fr)}}
+.gal{display:grid;gap:8px}
+.hero{grid-template-areas:"info gal" "info tour"}
+.hinfo{grid-area:info}.hgal{grid-area:gal}.htour{grid-area:tour}
+.gbig{aspect-ratio:400/260;border-radius:18px;overflow:hidden;background:var(--mist)}
+.gbig svg,.gt svg{width:100%;height:100%;display:block}
+.gthumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.gt{padding:0;min-height:0;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:var(--mist);border:2px solid transparent}
+.gt[aria-pressed=true]{border-color:var(--coral)}
+.gcap{margin:2px 0 0}
+@media(max-width:820px){.hero{grid-template-areas:"gal" "info" "tour"}.hero,.prov,.tiers{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.search{grid-template-columns:minmax(0,1fr)}.row2,.facts{grid-template-columns:minmax(0,1fr)}nav{margin-left:0;width:100%}nav a{padding:8px 12px;font-size:14px}.brand img{height:40px}.stats b{font-size:24px}}
+@media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}.badge circle.ring,.badge path.tick{stroke-dashoffset:0}.sk i,.stats .skb{opacity:.7}}
+
+/* ═════════════════ WARM THEME ═════════════════
+   Tokens: ivory #F8F4EF page · cream #FFFDF9 cards · beige #F2ECE4 wells · teal #007A80 primary ·
+   coral #FA746E accent (text uses #B6403B, buttons #DB4F47) · sage #A7C4A0 · gold #E1B67A · charcoal #2B2B2A.
+   One light palette by design: the brand is cream and warm in every viewer theme. */
+:root,:root[data-theme=dark],:root[data-theme=light]{color-scheme:light;--bg:#F8F4EF;--ink:#2B2B2A;--navy:#007A80;--teal:#007A80;--tealDeep:#036A70;--tealSoft:#E0F2F2;--coral:#FA746E;--cta:#DB4F47;--coralInk:#B6403B;--coralSoft:#FDE8E4;--sage:#A7C4A0;--sageSoft:#E8F0E5;--gold:#E1B67A;--goldSoft:#F8ECD9;--mist:#F2ECE4;--line:#E6DCCF;--muted:#6B655C;--card:#FFFDF9;--ok:#2F7D5B;--sh:0 1px 2px rgb(43 43 42/.04),0 8px 24px -12px rgb(43 43 42/.16);--lift:0 2px 4px rgb(43 43 42/.05),0 18px 40px -18px rgb(43 43 42/.24)}
+body{font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background-color:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .45 0 0 0 0 .35 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3,.big,.tier .amt,.how b,.fbrand{font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:600;letter-spacing:-.015em}
+h1{font-size:clamp(32px,4.6vw,48px);line-height:1.1;color:var(--ink)}
+h1 .t{color:var(--teal)}
+h1 em{color:var(--coralInk);font-style:italic}
+h2{font-size:clamp(26px,3.2vw,34px)}
+h3{font-size:21px;line-height:1.2}
+.sub{font-size:19px;color:var(--muted);margin:10px 0 4px;max-width:40ch}
+/* header */
+header{background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.brand .hh{width:44px;height:44px;flex:none}
+.brand b{font:600 26px/1 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.01em;color:var(--teal)}
+.brand b em{font-style:normal;color:var(--cta)}
+.brand small{font-size:12.5px;font-weight:500;letter-spacing:.04em;color:var(--muted)}
+nav a{font-weight:600;color:var(--ink)}
+nav a.on,nav a:hover{background:var(--tealSoft);color:var(--tealDeep)}
+nav a.cta{background:var(--cta);color:#fff;box-shadow:0 10px 22px -12px rgb(219 79 71/.7)}
+.sample{background:var(--mist);color:var(--muted);border-bottom:1px solid var(--line)}
+.tsz{background:var(--card);border-color:var(--line)}
+.tsz[aria-pressed=true]{background:var(--teal);border-color:var(--teal)}
+/* hero decoration */
+#v-find{position:relative}
+html{overflow-x:clip}
+.botan{position:absolute;top:0;right:calc(-1*max(4vw,16px));width:min(46vw,380px);height:300px;pointer-events:none;z-index:-1}
+.botan .sun{position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgb(225 182 122/.38),rgb(225 182 122/0) 70%)}
+.botan .sprig{position:absolute;right:calc(max(4vw,16px) + 2%);top:6px;width:96px;height:176px;transform-origin:50% 100%;animation:sway 9s ease-in-out infinite}
+.botan .bird{position:absolute;right:calc(max(4vw,16px) + 2% + 78px);top:62px;width:58px;height:44px}
+@keyframes sway{0%,100%{transform:rotate(0)}30%{transform:rotate(2.5deg)}70%{transform:rotate(-1.6deg)}}
+#v-find>h1,#v-find>.sub,#v-find>.lede{max-width:min(100%,calc(100% - 150px))}
+.lede{color:var(--muted)}
+.hl{background:var(--goldSoft);border-left:5px solid var(--gold);color:var(--ink);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:600;font-size:19px;border-radius:16px}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:10px;box-shadow:var(--sh);margin:6px 0 18px}
+.stats div{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:10px 4px;font-size:13px;line-height:1.3;color:var(--muted)}
+.stats b{font:600 clamp(22px,3vw,28px)/1 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);margin-top:4px}
+.si{display:grid;place-items:center;width:38px;height:38px;border-radius:50%}
+.si svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.si.t{background:var(--tealSoft);color:var(--teal)}.si.c{background:var(--coralSoft);color:var(--coralInk)}.si.g{background:var(--goldSoft);color:#8a5d22}.si.s{background:var(--sageSoft);color:#4f7348}
+.stats .skb{width:auto;height:84px;border-radius:20px}
+/* search */
+.search{background:var(--card);border:1px solid var(--line);border-bottom:0;border-radius:28px 28px 0 0;padding:12px 12px 6px;box-shadow:var(--sh)}
+.search2{background:var(--card);border:1px solid var(--line);border-top:0;border-radius:0 0 28px 28px;padding:6px 12px 14px;box-shadow:var(--sh)}
+input,select,textarea{background:var(--card);border:1.5px solid var(--line);border-radius:16px;min-height:50px;transition:border-color .25s,box-shadow .25s}
+.search input,.search select,.search2 select{background:#FBF7F1}
+#q{border-radius:999px;padding-left:46px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23DB4F47' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z'/%3E%3Ccircle cx='12' cy='10' r='2.3'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:16px 50%;background-size:20px}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgb(0 122 128/.14)}
+button:focus-visible,a:focus-visible,.card:focus-visible{outline:3px solid rgb(0 122 128/.45);outline-offset:3px}
+/* buttons */
+button{border-radius:999px;background:var(--teal);color:#FFFDF9;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s,background-color .25s,filter .25s}
+button:hover{filter:none;background:var(--tealDeep)}
+@media(hover:hover){button:hover{transform:translateY(-1.5px)}}
+button:active{transform:scale(.97)}
+button.pri{background:var(--cta);color:#fff;box-shadow:0 12px 26px -14px rgb(219 79 71/.75)}
+button.pri:hover{background:#C9463F}
+button.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+button.ghost:hover{background:var(--mist)}
+button.back,button.rm{background:none;color:var(--ink)}
+/* chips */
+.chip{background:var(--card);border:1.5px solid var(--line);color:var(--ink);min-height:44px;padding:8px 16px;font-weight:500;font-size:15px}
+.chip:hover{border-color:var(--sage);background:var(--card)}
+.chip[aria-pressed=true],:root[data-theme] .chip[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:#FFFDF9}
+/* cards */
+.grid{gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:var(--sh);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s}
+@media(hover:hover){.card:hover{transform:translateY(-3px);box-shadow:var(--lift)}}
+.thumb{height:150px;background:#F8E7CE}
+.open{background:var(--cta);top:auto;bottom:12px;left:12px;box-shadow:0 8px 18px -10px rgb(43 43 42/.4)}
+.kind{background:rgb(255 253 249/.92);color:var(--ink);top:12px;left:12px;right:auto;font-size:12.5px;padding:5px 11px}
+.fav{position:absolute;top:10px;right:10px;width:44px;height:44px;min-height:0;padding:0;display:grid;place-items:center;border-radius:50%;background:rgb(255 253 249/.94);color:var(--ink);box-shadow:0 6px 16px -8px rgb(43 43 42/.35)}
+.fav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}
+.fav:hover{background:var(--card);color:var(--coralInk)}
+.fav[aria-pressed=true]{color:var(--cta)}
+.fav[aria-pressed=true] svg{fill:currentColor}
+.fav.big{position:static;flex:none;border:1.5px solid var(--line)}
+.ptitle{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.body{padding:16px 18px 18px;gap:7px}
+.card h3{font-size:21px}
+.tag{background:var(--sageSoft);color:#3f5f39;font-weight:600;font-size:13px;padding:4px 11px}
+.tag.sp{background:var(--coralSoft);color:var(--coralInk)}
+.ver{color:var(--teal)}
+.vline{font-size:13.5px}
+.viewbtn{display:inline-flex;align-items:center;min-height:38px;padding:6px 16px;border-radius:999px;background:var(--tealSoft);color:var(--tealDeep);font-weight:600;font-size:14px}
+.card:hover .viewbtn{background:#D6ECEC}
+.state,.empty,.loading{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:var(--sh)}
+.sk{border-radius:28px;border-color:var(--line)}
+/* panels, profile, forms */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--sh)}
+.fact{background:#FBF7F1;border:1px solid var(--line);border-radius:16px}
+.vbox{background:var(--tealSoft);border-radius:16px}
+.vbox a,.links a{color:var(--tealDeep)}
+.links a{border-radius:999px;border-color:var(--line);background:var(--card)}
+.done{background:var(--sageSoft);border-color:#8fb487;border-radius:16px}
+.gbig{border-radius:24px}
+.gt{border-radius:14px}
+.gt[aria-pressed=true]{border-color:var(--cta)}
+.steps li.on{border-color:var(--cta)}
+.steps li.past,:root[data-theme] .steps li.past{border-color:var(--teal)}
+.warn{background:var(--goldSoft);color:#6b4a14}
+.match{background:var(--sageSoft);border-color:#8fb487}
+.ck span{background:var(--card);border-color:var(--line);font-weight:500}
+.ck input:checked+span{background:var(--teal);border-color:var(--teal);color:#FFFDF9}
+/* homepage bands */
+.how li{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--sh);padding:22px}
+.how b{font-size:20px}
+.trust{background:var(--teal);color:#FFFDF9;border-radius:28px;box-shadow:var(--lift);position:relative;overflow:hidden}
+.trust::after{content:"";position:absolute;right:-30px;bottom:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgb(225 182 122/.35),rgb(225 182 122/0) 70%);pointer-events:none}
+.trust h2{color:#FFFDF9}
+.trust .tf div{border-top-color:var(--gold)}
+.trust .tf span{color:#D6EAE6}
+.duo .panel{border-radius:28px}
+.duo .own{background:var(--coralSoft);border-color:#F3C6BE}
+.big{color:var(--coralInk)}
+.counties a{background:var(--card);border-color:var(--line);border-radius:999px;padding-inline:16px}
+.counties a:hover{border-color:var(--teal);color:var(--tealDeep)}
+.tools a{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh)}
+.tools a:hover{border-color:var(--teal)}
+.tier.hi{border:2px solid var(--cta)}
+.qcrit li{background:var(--card);border:1px solid var(--line);border-radius:20px}
+.qcrit li::before{background:var(--teal)}
+.seal{background:var(--teal);box-shadow:0 0 0 6px var(--bg),0 0 0 9px var(--gold)}
+.qb{background:var(--teal)}
+.mbar{background:var(--mist)}
+.mbar i{background:linear-gradient(90deg,var(--teal),var(--sage))}
+.st-soon{background:var(--goldSoft);color:#7a5114}
+/* footer */
+footer{background:var(--tealDeep);color:#D6EAE6;border-radius:32px 32px 0 0}
+.fbrand{font-size:24px;color:#FFFDF9}
+.fbrand img{height:38px}
+.fcols a{color:#D6EAE6}
+.fbase{border-top-color:rgb(255 253 249/.18)}
+/* bottom navigation: phones only */
+.bnav{display:none}
+@media(max-width:700px){
+  .bnav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgb(255 253 249/.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 8px max(8px,env(safe-area-inset-bottom));margin:0}
+  .bnav a{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 2px;border-radius:16px;text-decoration:none;font-size:12px;font-weight:600;color:var(--muted);min-height:52px;justify-content:center}
+  .bnav svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .bnav a[aria-current=page]{color:var(--teal);background:var(--tealSoft)}
+  .bcount[hidden]{display:none}
+  .bcount{position:absolute;top:3px;left:calc(50% + 6px);min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--cta);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center}
+  body{padding-bottom:84px}
+  header nav a:not(.cta){display:none}
+  header nav{width:auto;margin-left:auto}
+  header nav a.cta{padding:9px 14px;font-size:14px}
+  header .wrap{flex-wrap:nowrap}
+  .brand small{display:none}
+  .brand .hh{width:38px;height:38px}
+  .brand b{font-size:22px}
+  .botan{width:150px;height:200px;opacity:.75}
+  .botan .sprig{width:70px;height:128px}
+  .botan .bird{width:44px;height:33px;right:calc(16px + 54px);top:46px}
+  #v-find>h1{max-width:calc(100% - 64px)}
+  #v-find>.sub,#v-find>.lede{max-width:100%}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));border-radius:24px}
+  footer{border-radius:26px 26px 0 0}
+}
+@media(max-width:600px){.search{border-radius:24px 24px 0 0}.search2{border-radius:0 0 24px 24px}}
+@media(prefers-reduced-motion:reduce){.botan .sprig{animation:none}}
+@media print{.bnav,.botan,.fav{display:none!important}body{background:#fff;padding-bottom:0}}
+
+/* ═════════════════ MVP ALIGNMENT (Nov 2026) ═════════════════
+   Matches the JIGS CARE MVP: traced logo, colours taken from the logo, (headings now DM Sans, see the DM SANS layer below)
+   Inter for everything else. Logo teal #06A3A8 is for the logo and decoration only; #007A80 is the same
+   hue made dark enough for buttons and links (5:1 on cream). */
+:root,:root[data-theme=dark],:root[data-theme=light]{--navy:#007A80;--teal:#007A80;--tealDeep:#036A70;--tealSoft:#E0F2F2;--brandTeal:#06A3A8;--head:#04324F;--coral:#FA746E;--cta:#DB4F47;--coralInk:#B6403B}
+h1,h2,h3,.big,.tier .amt,.how b,.hl,.stats b{font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:700;letter-spacing:-.02em;color:var(--head)}
+h3,.card h3{font-weight:600;letter-spacing:-.01em}
+h1{font-size:clamp(30px,4.2vw,46px);line-height:1.12;letter-spacing:-.025em}
+h1 .t{color:var(--teal)}
+h1 em{font-style:normal;color:inherit}
+.hl{font-size:18px}
+.stats b{font-size:clamp(21px,2.8vw,27px)}
+.trust h2,.trust h3,footer h2,footer h3{color:#FFFDF9}
+/* logo */
+.brand{gap:10px}
+.brand .hh{width:46px;height:46px}
+.brand .wm{height:19px;width:auto;color:var(--head);display:block}
+.fbrand{display:flex;align-items:center;gap:10px}
+.fbrand .fm{width:44px;height:44px;flex:none}
+.fbrand .wm{height:18px;width:auto;color:#FFFDF9}
+/* footer on logo navy, like the reverse logo */
+footer{background:var(--head);color:#CFDCE6}
+.fcols a{color:#CFDCE6}
+.fcols a:hover{color:#FFFDF9}
+/* owner CTA is secondary: families come first */
+nav a.cta{background:var(--coralSoft);color:var(--coralInk);box-shadow:none}
+nav a.cta:hover{background:var(--cta);color:#fff}
+/* sample house photos over the illustration */
+.thumb,.gbig{position:relative;overflow:hidden}
+.phw{position:absolute;inset:0;display:block}
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease}
+.ph.in{opacity:1}
+.sph{position:absolute;right:10px;bottom:10px;padding:3px 9px;border-radius:999px;background:rgb(255 253 249/.92);color:#6B655C;font:600 11px/1.4 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.02em;opacity:0;transition:opacity .4s}
+.ph.in+.sph{opacity:1}
+.thumb .open,.thumb .kind,.thumb .fav{z-index:2}
+.thumb .open~.phw .sph,.thumb:has(.open) .sph{bottom:auto;top:62px}
+.thumb{height:170px}
+@media(max-width:700px){.brand .hh{width:40px;height:40px}.brand .wm{height:16px}.brand b{display:none}}
+@media(prefers-reduced-motion:reduce){.ph,.sph{transition:none}}
+@media print{.phw{display:none}}
+#v-find>.hl{margin:4px 0 10px;font-size:16px;padding:12px 16px}
+#v-find>.lede{margin:0 0 18px;font-size:15px}
+.sample{font-size:12.5px;padding:6px 12px;gap:4px 10px}
+.sample .tsz{min-height:32px;padding:2px 10px;font-size:13px}
+
+/* ───── Featured homes strip: right-to-left marquee, soft edge fade, pause on hover/focus/button ───── */
+.hlsec{margin:6px 0 22px}
+.hlhead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:6px}
+.eyebrow{display:block;margin:0;font:700 12px/1.2 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--coralInk)}
+.hlsec h2{margin:6px 0 2px;font-size:clamp(22px,2.6vw,28px)}
+.hlsec .note{margin:0;font-size:14px}
+.hlpause{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:6px 16px;font-size:14px;flex:none}
+.hlpause svg{width:15px;height:15px;fill:currentColor}
+.hlview{overflow:hidden;padding:8px 0 16px;-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent)}
+.hltrack{display:flex;width:max-content;animation:hlm var(--hl-dur,60s) linear infinite;will-change:transform}
+.hltrack ul{display:flex;gap:16px;margin:0;padding:0 16px 0 0;list-style:none}
+.hlview:hover .hltrack,.hlview:focus-within .hltrack,.hlview[data-paused] .hltrack{animation-play-state:paused}
+@keyframes hlm{to{transform:translate3d(-50%,0,0)}}
+.hlc{display:block;width:280px;background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--sh);text-decoration:none;color:var(--ink);transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}
+@media(hover:hover){.hlc:hover{transform:translateY(-3px);box-shadow:var(--lift)}}
+.hlp{position:relative;display:block;height:160px;background:#F8E7CE;overflow:hidden}
+.hlp>svg{width:100%;height:100%;display:block}
+.hlb{position:absolute;top:10px;left:10px;z-index:2;background:rgb(255 253 249/.95);color:var(--coralInk);font:700 11.5px/1 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:999px;box-shadow:0 6px 14px -8px rgb(43 43 42/.35)}
+.hlt{display:flex;flex-direction:column;gap:3px;padding:12px 16px 16px}
+.hlt b{font:600 17px/1.25 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--head);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hlt span{font-size:14px;color:var(--muted)}
+.hlt em{font-style:normal;align-self:flex-start;margin-top:4px;background:var(--tealSoft);color:var(--tealDeep);font-weight:600;font-size:12.5px;padding:3px 10px;border-radius:999px}
+.addon{margin-top:18px;border:2px dashed var(--gold);background:var(--goldSoft)}
+.addon h3{margin:6px 0 6px}
+@media(max-width:700px){.hlc{width:236px}.hlp{height:138px}.hlhead{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.hlview{overflow-x:auto;-webkit-mask-image:none;mask-image:none;scroll-snap-type:x mandatory}.hltrack{animation:none}.hl-dupe,.hltrack li[aria-hidden],.hlpause{display:none!important}.hltrack li{scroll-snap-align:start}}
+@media print{.hlsec{display:none}}
+
+/* ═════════════════ DM SANS + POLISH (Nov 2026) ═════════════════
+   One calm family: DM Sans 600 for headings, 400/500 for text. The logo stays the only bold element.
+   Teal for main actions; coral only for hearts, open-bed and Featured badges, and "Claim your home". */
+body{font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16.5px;line-height:1.6;color:#2B2B2A}
+h1,h2,h3,.big,.tier .amt,.how b,.hl,.stats b,.hlt b{font-family:"DM Sans",system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;color:var(--head)}
+h1{font-size:clamp(30px,4vw,44px);line-height:1.12;margin:0 0 10px}
+h2{font-size:clamp(24px,2.8vw,31px);line-height:1.2}
+h3,.card h3{font-size:20px;line-height:1.25;letter-spacing:-.01em}
+.stats b{font-weight:600}
+.hl{font-weight:500;font-size:16.5px;color:#4a3a1c}
+.sub,.lede{color:#5F5A52}
+html{scroll-padding-top:104px}
+.view{padding-top:clamp(36px,5vw,60px)}
+button.pri{background:var(--teal);color:#fff;box-shadow:0 10px 22px -14px rgb(0 122 128/.8)}
+button.pri:hover{background:var(--tealDeep)}
+.tier.hi,:root[data-theme] .tier.hi{border:2px solid var(--teal)}
+.tiers.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
+.tier .eyebrow{margin-bottom:4px}
+.tier ul{padding-left:20px}
+.tier li{margin:4px 0}
+@media(max-width:700px){.tiers.two{grid-template-columns:minmax(0,1fr)}}
+/* caregiver jobs: full width, two columns on desktop */
+.jobs-wrap{max-width:1100px}
+.jobs-wrap>.hl{max-width:760px}
+#jobList{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:18px;align-items:start}
+#jobList .jprompt{grid-column:1/-1}
+#jobList .job{display:flex;flex-direction:column;gap:6px;height:100%}
+#jobList .job .acts{margin-top:auto;padding-top:8px}
+
+/* sample tag: a tab attached to the right edge of every sample photo */
+.sph{right:0;bottom:12px;border-radius:999px 0 0 999px;padding:4px 10px 4px 12px;background:rgb(4 50 79/.82);color:#FFFDF9;font:600 11px/1.3 "DM Sans",system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.thumb:has(.open) .sph{top:auto;bottom:12px}
+.gbig .sph{bottom:16px;font-size:12px;padding:6px 12px 6px 14px}
+.gcap a{color:var(--tealDeep)}
+.fbase a{color:inherit}
+.opic{position:relative;aspect-ratio:16/10;max-width:420px;border-radius:18px;overflow:hidden;background:var(--mist)}
+.opic::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#F8E7CE,#E8F0E5)}
+.upl{display:inline-flex;position:relative;cursor:pointer}
+.upl input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.upl span{display:inline-flex;align-items:center;min-height:46px;padding:10px 18px;border-radius:999px;background:var(--teal);color:#fff;font-weight:600}
+.upl:focus-within span{outline:3px solid rgb(0 122 128/.45);outline-offset:3px}
+
+/* ═════════════ RECOMMENDATIONS (Nov 2026): jobs, reviews, compare, map, guide, freshness ═════════════ */
+.foot .meta{display:flex;flex-direction:column;gap:2px}
+.price{color:var(--head);font-weight:600}
+.fresh{font-size:12.5px;color:var(--ok)}
+.warn a,.done a{color:inherit;font-weight:700}
+.jfilters{display:grid;grid-template-columns:2fr repeat(3,minmax(0,1fr));gap:12px;margin:6px 0 18px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:12px 14px;box-shadow:var(--sh)}
+.jfilters label{font-size:13.5px;font-weight:600;color:var(--muted)}
+@media(max-width:700px){.jfilters{grid-template-columns:1fr 1fr}.jfilters label:first-child{grid-column:1/-1}}
+.job{position:relative}
+.jfeat{border:2px solid var(--gold)}
+.jbadge{align-self:flex-start;background:var(--goldSoft);color:#7a5114;font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.jpills{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0}
+.jp{background:var(--mist);border-radius:999px;padding:4px 11px;font-size:13.5px;font-weight:500}
+.jp.pay{background:var(--tealSoft);color:var(--tealDeep);font-weight:700}
+.jp.cred{background:var(--sageSoft);color:#3f5f39}
+.jp.bonus{background:var(--goldSoft);color:#7a5114}
+.ck.feat span{display:block;line-height:1.4}
+.apf{display:flex;flex-direction:column;gap:8px;width:100%}
+.rev{border-top:1px solid var(--line);padding:10px 0}
+.rst{color:#C9902F;letter-spacing:2px;margin:0}
+.ravg{margin:0 0 6px}
+.rrep{background:var(--mist);border-radius:12px;padding:8px 12px;font-size:14px}
+.stars{display:flex;gap:4px}
+.stars label{cursor:pointer;font-size:28px;line-height:1;color:#D8CDBF}
+.stars input{position:absolute;opacity:0}
+.stars label:has(input:checked),.stars label:has(~ label input:checked){color:#C9902F}
+.stars label:has(input:focus-visible){outline:3px solid rgb(0 122 128/.45);border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cmp{margin-bottom:22px}
+.cmpck{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.cmp table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+.cmp th,.cmp td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+.cmp thead th{font-weight:600;color:var(--head)}
+.cmp tbody th{color:var(--muted);font-weight:600;width:160px}
+.cmp a{color:var(--tealDeep)}
+.vtog{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px;margin-left:auto;margin-right:10px}
+.vtog button{min-height:38px;padding:6px 16px;background:none;color:var(--ink);box-shadow:none;font-weight:600}
+.vtog button[aria-pressed=true]{background:var(--teal);color:#fff}
+.bar{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.mapbox{margin-bottom:18px}
+#map{height:min(70vh,560px);border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--mist)}
+.gsteps{padding-left:0;list-style:none;counter-reset:g;display:flex;flex-direction:column;gap:14px}
+.gsteps>li{counter-increment:g;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:20px 22px 20px 70px;position:relative;box-shadow:var(--sh)}
+.gsteps>li::before{content:counter(g);position:absolute;left:20px;top:20px;width:34px;height:34px;border-radius:50%;background:var(--tealSoft);color:var(--tealDeep);display:grid;place-items:center;font-weight:700}
+.gsteps h2{font-size:21px;margin:2px 0 6px}
+.gsteps p{margin:6px 0}
+.gsteps a{color:var(--tealDeep);font-weight:600}
+.qlist{margin:6px 0 0;padding-left:20px}
+.qlist li{margin:3px 0}
+@media print{.mapbox,.vtog,.jfilters{display:none!important}}
+
+/* ═════════════ VISIBILITY PASS (Nov 2026) ═════════════
+   Deeper warm page + white cards so cards stand out; no paper texture; darker greys (8:1) at 14px+;
+   deep teal for text links; quieter "Sample photo" tag; homes on the first screen. */
+:root,:root[data-theme=dark],:root[data-theme=light]{--bg:#F3EDE4;--card:#FFFFFF;--line:#DDD1C1;--muted:#4E4943;--mist:#F6F1EA;
+  --sh:0 1px 2px rgb(43 43 42/.05),0 10px 28px -14px rgb(43 43 42/.22);--lift:0 2px 4px rgb(43 43 42/.06),0 20px 40px -18px rgb(43 43 42/.28)}
+body{background-image:none!important;background-color:var(--bg)}
+.sample{background:#EDE5D9;color:#4E4943;font-size:13.5px}
+.note{font-size:14.5px;color:var(--muted)}
+.meta{color:var(--muted);font-size:15px}
+.sub{color:var(--muted)}
+main a:not(.btn):not(.viewbtn):not(.cta),.gcap a,.vbox a,.links a{color:var(--tealDeep)}
+.botan{opacity:.55}
+.botan .sun{opacity:.7}
+/* header and hero tighter, so search and homes come up */
+#v-find{padding-top:clamp(22px,3.4vw,40px)}
+#v-find>h1{font-size:clamp(28px,3.6vw,40px);margin-bottom:6px}
+#v-find>.sub{margin:0 0 14px;font-size:17.5px}
+/* one search bar, sticky under the header */
+.sbar{position:sticky;top:calc(var(--hh,64px) + 6px);z-index:15;margin:0 0 10px}
+.sbar .search{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;border:1px solid var(--line);border-radius:999px;padding:8px;background:var(--card);box-shadow:var(--sh)}
+.sbar #q{border:0;background-color:transparent;min-height:48px}
+.sbar #q:focus-visible{box-shadow:none}
+.sbar .search:focus-within{box-shadow:0 0 0 4px rgb(0 122 128/.16),var(--sh)}
+.fbtn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:8px 18px;background:var(--tealSoft);color:var(--tealDeep);border-radius:999px;font-weight:600}
+.fbtn:hover{background:#D3EBEA}
+.fbtn.on{background:var(--teal);color:#fff}
+.fbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.fcount{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:#fff;color:var(--tealDeep);font-size:12.5px;font-weight:700;display:grid;place-items:center}
+.fdrawer{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:16px;box-shadow:var(--sh);margin:0 0 12px}
+.fgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.fgrid label{font-size:14px;font-weight:600;color:var(--muted)}
+.fgrid select{background:#FBF8F3;margin-top:4px}
+.fdacts{display:flex;justify-content:flex-end;gap:10px;margin-top:12px}
+@media(max-width:820px){.fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.fgrid{grid-template-columns:minmax(0,1fr)}.fbtn{padding:8px 14px}}
+/* chips: one swipeable row on phones */
+.chips{margin:4px 0 8px}
+@media(max-width:700px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1*max(4vw,16px));padding-inline:max(4vw,16px);padding-bottom:4px}.chips::-webkit-scrollbar{display:none}.chips .chip{flex:none}}
+.trustline{display:flex;flex-wrap:wrap;gap:4px 16px;margin:2px 0 14px;font-size:14.5px;color:var(--muted)}
+.trustline span{color:#2F5E2A;font-weight:500}
+.trustline a{font-weight:600}
+@media(max-width:700px){.trustline{font-size:13.5px;gap:2px 12px}}
+.bar{margin-top:2px}
+#count{font-weight:600;color:var(--head)}
+/* featured strip and stats now sit below the first results */
+#v-find>.hlsec{margin-top:30px}
+#v-find>.stats{margin-top:26px}
+/* cards: white, clear hierarchy */
+.card{background:#fff;border-color:var(--line)}
+.card h3{font-size:20px;margin-bottom:2px}
+.kv{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.kv .price{font-size:16.5px}
+.kv .fresh{font-size:13.5px;color:var(--ok)}
+.tag{font-size:13.5px}
+.lic{font-size:13.5px;color:#2F5E2A;font-weight:600}
+.foot{align-items:center}
+/* quieter sample tag: still on the edge, light instead of dark */
+.sph{background:rgb(255 255 255/.9);color:#4E4943;font:600 10.5px/1.3 "DM Sans",system-ui,sans-serif;letter-spacing:.05em;padding:3px 9px 3px 11px;bottom:10px;box-shadow:0 2px 8px -4px rgb(43 43 42/.35)}
+.gbig .sph{font-size:11.5px;padding:5px 11px 5px 13px}
+/* gentle warm lift so darker photos still feel calm */
+.ph{filter:brightness(1.05) saturate(.96)}
+.phw::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(255 244 228/.10),rgb(255 244 228/0) 45%,rgb(43 43 42/.10));pointer-events:none}
+.ph.in~.sph{z-index:1}
+.thumb{height:176px}
+/* featured cards follow the same white surface */
+.hlc{background:#fff;border-color:var(--line)}
+.stats,.search2,.panel,.how li,.tools a,.qcrit li,.fact{border-color:var(--line)}
+.stats{background:#fff}
+.fact{background:#FBF8F3}
+.panel{background:#fff}
+
+.fcount[hidden]{display:none}
+@media(max-width:700px){
+  .sample{font-size:12.5px;padding:6px 12px;gap:2px 8px;line-height:1.35}
+  .sample .b3,.sample .bsep{display:none}
+  .sample>span:first-child{flex-basis:100%}
+  .sample .tsz{min-height:30px;padding:2px 10px;font-size:12.5px}
+  .bar{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;align-items:center}
+  .bar #count{grid-column:1/-1;margin:0;font-size:15.5px}
+  .bar .vtog{margin:0}
+  .bar #sort{width:100%;min-height:46px}
+  #v-find>.sub{font-size:16.5px;margin-bottom:12px}
+  .trustline span:nth-child(3){display:none}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="brand" href="#find" data-home aria-label="JIGS CARE home"><svg class="hh" viewBox="0 0 64 64" aria-hidden="true"><path fill="#06A3A8" fill-rule="evenodd" d="M32.05 0.00L31.50 0.18L5.79 20.19L3.53 22.00L2.99 22.54L2.81 22.90L2.81 25.44L3.08 25.71L9.41 25.71L9.69 25.98L9.69 46.98L9.78 47.07L10.14 45.80L10.86 43.99L11.95 42.00L13.76 39.56L15.30 37.93L15.30 20.55L15.66 19.55L18.92 16.84L31.59 6.88L32.14 6.79L47.52 18.83L48.43 19.82L48.61 20.37L48.61 45.08L48.43 46.62L48.07 48.16L47.43 49.88L46.62 51.42L44.63 53.95L43.45 55.04L42.18 55.94L40.92 56.67L38.74 57.48L36.03 57.93L10.05 57.93L9.96 58.48L10.23 59.38L10.77 60.56L11.50 61.56L13.13 62.91L14.94 63.73L16.48 64.00L36.21 64.00L36.30 63.91L37.21 63.91L39.38 63.55L42.09 62.73L44.90 61.37L47.34 59.65L49.79 57.21L51.60 54.59L52.96 51.69L53.77 48.88L54.13 46.71L54.13 45.26L54.22 45.17L54.22 25.89L54.40 25.71L60.92 25.71L61.19 25.44L61.19 22.81L60.47 22.00L32.59 0.27Z"/><path fill="#FA746E" d="M44.18 33.22L43.54 32.77L42.82 32.68L42.18 32.86L41.37 33.40L40.46 34.58L38.47 38.56L37.11 40.46L35.49 42.09L34.67 42.73L32.95 43.72L31.32 44.36L28.88 44.81L27.61 44.81L26.52 44.45L26.25 44.08L26.25 43.45L27.07 42.64L30.60 40.55L31.50 39.83L32.23 39.02L32.68 37.93L32.68 37.02L32.32 36.21L31.50 35.76L30.96 35.76L30.33 35.94L28.79 36.84L26.34 37.93L23.72 38.65L21.73 39.38L19.19 40.83L18.29 41.55L16.57 43.36L15.84 44.45L15.03 46.17L14.57 47.62L14.21 49.70L14.21 50.96L14.12 51.06L14.21 54.13L14.30 54.22L27.16 54.22L29.78 53.77L31.59 53.23L34.22 52.05L36.12 50.87L37.93 49.43L39.83 47.43L41.37 45.26L42.36 43.45L43.18 41.55L43.81 39.65L44.36 37.30L44.54 35.94L44.54 34.13Z"/><circle cx="39.43" cy="25.81" r="4.99" fill="#FA746E"/></svg><svg class="wm" viewBox="0 0 345.82 40" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M314.55 0.00L314.18 0.36L314.18 39.64L314.55 40.00L345.45 40.00L345.82 39.64L345.82 34.18L345.45 33.82L321.45 33.82L320.73 33.09L320.73 24.00L321.45 23.27L343.64 23.27L344.00 22.91L344.00 17.45L343.64 17.09L321.82 17.09L320.73 16.00L320.73 7.27L321.82 6.18L326.18 6.18L326.55 6.55L345.45 6.18L345.82 5.82L345.82 0.36L345.45 0.00Z M266.55 0.00L266.18 0.36L266.18 39.64L266.55 40.00L272.36 40.00L272.73 39.64L272.73 7.27L273.45 6.55L282.91 6.55L283.27 6.18L288.73 6.55L290.18 6.18L290.55 6.55L293.45 6.55L294.91 7.27L296.73 9.45L297.09 10.55L297.09 15.27L296.36 17.09L294.91 18.55L292.00 19.64L281.09 19.64L280.73 20.36L295.64 39.64L296.36 40.00L303.27 40.00L303.64 39.27L293.45 26.18L294.18 25.09L297.09 24.36L299.27 23.27L301.45 21.09L302.55 19.27L303.64 14.55L303.64 10.55L302.91 7.64L301.45 4.73L298.91 2.18L294.55 0.36L292.00 0.36L291.64 0.00Z M233.82 0.00L233.09 0.73L225.82 15.64L223.27 21.82L216.36 35.64L214.91 39.64L215.27 40.00L221.09 40.00L221.82 39.64L225.82 30.18L234.55 12.00L234.55 11.27L235.27 9.82L236.36 9.09L237.09 9.82L239.64 15.27L239.64 16.00L250.18 39.27L250.91 40.00L257.09 40.00L257.45 39.64L257.09 38.18L239.64 0.73L238.91 0.00Z M175.64 4.00L173.09 6.91L171.64 9.82L170.18 16.00L170.55 26.91L172.00 31.64L173.82 34.55L178.18 38.18L181.82 39.64L183.64 39.64L184.00 40.00L206.18 40.00L206.55 39.64L206.55 34.18L206.18 33.82L185.09 33.82L182.55 33.09L180.36 31.64L178.55 29.45L177.09 25.09L177.09 14.55L178.91 10.18L181.45 7.64L182.91 6.91L187.64 6.55L188.00 6.18L198.55 6.18L198.91 6.55L206.18 6.18L206.55 5.82L206.55 0.36L206.18 0.00L185.45 0.00L179.64 1.45Z M115.27 2.91L112.73 5.82L111.64 8.36L111.27 14.18L112.36 17.45L115.64 21.09L118.55 22.55L122.91 22.91L123.27 23.27L138.91 23.27L140.73 24.00L142.91 26.55L142.91 29.82L141.09 32.73L138.18 33.82L113.82 33.82L113.09 35.27L113.09 39.64L113.45 40.00L139.64 40.00L143.27 38.91L145.09 37.82L147.64 35.27L149.09 31.64L149.45 27.64L149.09 27.27L148.73 23.64L147.64 21.45L144.36 18.55L140.00 17.09L121.45 16.73L118.55 14.55L117.82 13.09L117.82 10.55L118.55 8.73L119.64 7.64L122.18 6.55L126.18 6.55L126.55 6.18L146.18 6.18L146.55 5.82L146.55 0.36L146.18 0.00L123.27 0.00L118.55 1.09Z M67.27 3.64L63.64 8.36L61.82 14.91L61.82 25.45L62.18 25.82L62.18 28.00L62.91 30.55L65.09 34.55L67.64 37.09L69.45 38.18L75.27 40.00L100.36 40.00L100.73 39.64L100.73 17.82L100.36 17.45L83.64 17.45L83.27 17.82L83.27 23.27L83.64 23.64L93.82 23.64L94.55 24.36L94.55 33.09L93.82 33.82L76.00 33.82L72.36 32.36L70.18 30.18L69.09 28.00L68.73 24.36L68.36 24.00L68.73 14.18L70.18 10.55L72.00 8.36L74.55 6.91L79.64 6.55L80.00 6.18L82.55 6.18L82.91 6.55L85.09 6.55L85.45 6.18L96.73 6.55L97.09 6.18L98.91 6.18L99.27 5.82L99.27 0.36L98.91 0.00L77.45 0.00L70.91 1.45Z M44.00 0.00L43.64 0.36L43.64 39.64L44.00 40.00L50.18 40.00L50.55 39.64L50.55 0.36L50.18 0.00Z M30.18 0.00L24.36 0.00L24.00 0.36L24.00 26.55L22.55 30.55L20.36 32.73L17.82 33.82L0.36 33.82L0.00 34.18L0.00 39.64L0.36 40.00L18.91 40.00L22.18 39.27L24.36 38.18L27.27 35.64L29.09 32.36L30.55 26.18L30.55 0.36Z"/></svg></a>
+  <nav>
+    <a href="#find" data-v="find" data-home>Find a home</a>
+    <a href="#saved" data-v="saved">Saved</a>
+    <a href="#jobs" data-v="jobs">Caregiver jobs</a>
+    <a href="#providers" data-v="providers">For owners</a>
+    <a href="#claim" data-v="claim" class="cta">Claim your home</a>
+  </nav>
+</div></header>
+<div class="sample" id="banner"><span>Listings: Washington DSHS licensing data</span><span class="bsep"> · </span><span>Photos are samples, not the actual homes</span><span class="b3"> · Tour requests and claims go to JIGS CARE, and we pass them to the home.</span><button class="tsz" id="tsz" type="button" aria-pressed="false">A+ Larger text</button></div>
+
+<main class="wrap">
+<section class="view" id="v-find">
+  <div class="botan" aria-hidden="true"><span class="sun"></span>
+    <svg class="sprig" viewBox="0 0 120 220"><path d="M60 218C58 160 52 110 74 18" fill="none" stroke="#A7C4A0" stroke-width="3" stroke-linecap="round"/><g fill="#A7C4A0"><ellipse cx="44" cy="178" rx="22" ry="9" transform="rotate(-38 62 178)"/><ellipse cx="78" cy="146" rx="21" ry="8.5" transform="rotate(32 60 146)" opacity=".9"/><ellipse cx="46" cy="114" rx="20" ry="8" transform="rotate(-34 62 114)" opacity=".85"/><ellipse cx="82" cy="84" rx="18.5" ry="7.5" transform="rotate(30 65 84)" opacity=".8"/><ellipse cx="55" cy="56" rx="17" ry="7" transform="rotate(-30 69 56)" opacity=".75"/><ellipse cx="85" cy="32" rx="15" ry="6.3" transform="rotate(26 72 32)" opacity=".7"/></g></svg>
+  </div>
+  <h1>Find a licensed <span class="t">adult family home</span> in Washington</h1>
+  <p class="sub">Trusted homes. Caring people. Start your search today.</p>
+  
+  
+  
+  
+  <div class="sbar" id="sbar">
+    <div class="search" role="search">
+      <input id="q" type="search" placeholder="Home name, city, ZIP or license number" aria-label="Search by home name, city, ZIP or license number">
+      <button type="button" class="fbtn" id="fBtn" aria-expanded="false" aria-controls="fDrawer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filters<span class="fcount" id="fCount" hidden></span></button>
+    </div>
+  </div>
+  <div class="fdrawer" id="fDrawer" hidden>
+    <div class="fgrid">
+      <label for="county">County<select id="county"><option value="">All counties</option></select></label>
+      <label for="type">Type of care<select id="type"><option value="A">Adult family homes</option><option value="L">Assisted living</option><option value="">All home types</option></select></label>
+      <label for="budget">Monthly budget<select id="budget"><option value="">Any budget</option><option value="6000">Up to $6,000</option><option value="8000">Up to $8,000</option><option value="10000">Up to $10,000</option><option value="12000">Up to $12,000</option></select></label>
+      <label for="bedsmin">Available beds<select id="bedsmin"><option value="">Any</option><option value="1">1 or more</option><option value="2">2 or more</option></select></label>
+    </div>
+    <p class="note" id="ownerNote" hidden style="margin-top:8px">Budget and open beds come from home owners. Only homes whose owners have posted them show up while these filters are on.</p>
+    <div class="fdacts"><button type="button" class="ghost" id="fClear">Clear filters</button><button type="button" class="pri" id="fDone">Show homes</button></div>
+  </div>
+  <div class="chips" id="chips"></div>
+  <p class="trustline"><span>✓ Washington DSHS licensing data</span><span>✓ Free, no account needed</span><span>✓ Inspection reports linked</span><a href="#guide">How to choose a home</a></p>
+  <div class="bar"><p id="count" aria-live="polite"></p>
+    <div class="vtog" role="group" aria-label="Show results as"><button type="button" id="vList" aria-pressed="true">List</button><button type="button" id="vMap" aria-pressed="false">Map</button></div>
+    <select id="sort" aria-label="Sort"><option value="fair">Recommended</option><option value="name">Name A to Z</option><option value="bedsd">Most beds</option><option value="bedsa">Fewest beds (smallest homes)</option></select>
+  </div>
+  <div class="mapbox" id="mapBox" hidden><div id="map" role="region" aria-label="Map of matching homes"></div><p class="note" id="mapNote"></p></div>
+  <div class="grid" id="list" aria-busy="true"></div>
+  <div class="more"><button class="ghost" id="more" hidden>Show more homes</button></div>
+  <p class="note" id="fairNote" style="margin:4px 0 0">Fair order: homes with owner-confirmed openings come first, then everyone else in a rotation that changes daily. A home's name never buys a higher spot.</p>
+  <section class="hlsec" id="hlSec" aria-labelledby="h-hl" hidden>
+    <div class="hlhead"><div><p class="eyebrow">Highlighted</p><h2 id="h-hl">Featured homes</h2><p class="note" id="hlNote"></p></div>
+      <button type="button" class="ghost hlpause" id="hlPause" aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 4h3v12h-3zM11.5 4h3v12h-3z"/></svg><span>Pause</span></button></div>
+    <div class="hlview" id="hlView"><div class="hltrack" id="hlTrack"></div></div>
+  </section>
+  <div class="stats" id="stats" aria-hidden="true"><span class="skb"></span><span class="skb"></span><span class="skb"></span><span class="skb"></span></div>
+  <p class="hl">Free for families, free for caregivers, and free for every home to list.</p>
+  <p class="lede">Every licensed adult family home and assisted living community in the state, from DSHS records, with links to each home's official inspection reports. Your information is never sold.</p>
+
+  <div id="homeSecs">
+  <section class="hs" aria-labelledby="h-how">
+    <h2 id="h-how">Simple steps</h2>
+    <p class="lede">Finding care for a parent is hard enough. No call center, no sales pitch, no fee.</p>
+    <ol class="how">
+      <li><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#FA746E1f"/><circle cx="25" cy="25" r="10" fill="none" stroke="#007A80" stroke-width="4"/><path d="m32 32 9 9" stroke="#007A80" stroke-width="5" stroke-linecap="round"/></svg><b>1. Search by city, ZIP, or county</b><p>Every licensed home in Washington, straight from state records.</p></li>
+      <li><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#FA746E1f"/><path d="M15 19h26M19 28h18M23 37h10" stroke="#007A80" stroke-width="4" stroke-linecap="round"/></svg><b>2. Filter by services, budget, or available beds</b><p>Dementia, mental health and developmental disability care, Medicaid, and what owners post.</p></li>
+      <li><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#FA746E1f"/><rect x="17" y="12" width="22" height="31" rx="3" fill="#fff" stroke="#007A80" stroke-width="3"/><path d="M22 22h12M22 28h12M22 34h7" stroke="#007A80" stroke-width="3" stroke-linecap="round"/></svg><b>3. View the home profile and license information</b><p>What was checked, the source and the date, with links to the official DSHS reports.</p></li>
+      <li><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#FA746E1f"/><rect x="13" y="18" width="30" height="21" rx="3" fill="#fff" stroke="#007A80" stroke-width="3"/><path d="m14 20 14 10 14-10" fill="none" stroke="#FA746E" stroke-width="3" stroke-linejoin="round"/></svg><b>4. Send a short inquiry, free</b><p>It goes only to the home you pick. No account and no medical details needed.</p></li>
+    </ol>
+  </section>
+
+  <section class="hs trust" aria-labelledby="h-trust">
+    <div><h2 id="h-trust">Why families trust JIGS CARE</h2><p style="margin:14px 0 0"><a href="#quality" style="color:#fff;font-weight:700">See the JIGS Quality standards →</a></p></div>
+    <div class="tf">
+      <div><b>Straight from state records</b><span>Every listing comes from Washington DSHS licensing data, dated, with the official record one tap away.</span></div>
+      <div><b>Your information is never sold</b><span>Free for families, always. No lead lists, no calls from strangers.</span></div>
+      <div><b>A name never buys a spot</b><span>Homes are shown in a fair daily rotation, not by who named themselves "1st" or "AAA".</span></div>
+    </div>
+  </section>
+
+  <section class="hs duo" aria-label="For owners and caregivers">
+    <div class="panel own">
+      <h2>Own an adult family home?</h2>
+      <p>Your home is already listed from state records. Claim it free to add a description, post open beds and show up first when families search your county.</p>
+      <div class="big" id="ownCount">6,296 homes</div><p class="note" style="margin-top:-6px">already listed and waiting to be claimed</p>
+      <div class="acts"><button class="pri" type="button" onclick="location.hash='claim'">Claim your home free</button><a href="#providers">See plans</a><a href="#owner">Owner dashboard</a></div>
+    </div>
+    <div class="panel">
+      <h2>For caregivers</h2>
+      <p>Create a free profile, search jobs, and apply at no cost. You will never be charged.</p>
+      <div class="acts"><button class="pri" type="button" onclick="location.hash='caregiver'">Caregiver Signup — Always Free</button><a href="#jobs">Browse caregiver jobs</a></div>
+      <div class="selfchk"><b>Stand out to employers</b><span class="note" style="font-size:14px">Run a background check on yourself and keep a copy ready for interviews. <a href="https://checkr.com/" id="selfLink">Get your own check through Checkr</a>.</span>
+        <span class="note">This is not the DSHS fingerprint check required to work in a Washington adult family home. Your employer requests that through DSHS. JIGS CARE may earn a referral fee.</span></div>
+    </div>
+  </section>
+
+  <section class="hs" aria-labelledby="h-cty">
+    <h2 id="h-cty">Browse adult family homes by county</h2>
+    <p class="lede">Licensed homes in every Washington county, with the number in each.</p>
+    <ul class="counties" id="ctyList"></ul>
+  </section>
+  </div>
+</section>
+
+<section class="view" id="v-home"></section>
+
+<section class="view" id="v-claim"><div class="col">
+  <h1>Claim your home's listing</h1>
+  <p class="lede">Your home is already listed from state licensing records. Claim it free to add a description, post openings and hire caregivers.</p>
+  <ol class="steps" id="steps"><li>Find your home</li><li>Confirm it's you</li><li>Your profile</li><li>Live</li></ol>
+  <div id="claimBody"></div>
+</div></section>
+
+<section class="view" id="v-quality">
+  <div class="qhero">
+    <div class="seal" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="qarc" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0"/></defs><text font-family=""DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif" font-weight="800" font-size="17" letter-spacing="3" fill="#fff"><textPath href="#qarc" startOffset="2%">JIGS QUALITY · WASHINGTON · JIGS QUALITY ·</textPath></text></svg><img src="logo-mark-white.svg" alt=""></div>
+    <div><h1>JIGS Quality: the standard every family can check</h1>
+      <p class="lede" style="margin-bottom:0">Every home on JIGS CARE is licensed by the state. JIGS Quality homes go further: they meet ten published standards for safety, honesty and person-centered care, and we recheck them every 90 days. No home can buy the badge. It's free to earn on any plan.</p></div>
+  </div>
+  <h2 style="margin-top:clamp(32px,5vw,48px)">The ten standards</h2>
+  <ol class="qcrit" id="qcrit"></ol>
+  <h2 style="margin-top:clamp(32px,5vw,48px)">How the badge works</h2>
+  <div class="qrules">
+    <div class="panel"><h3>Rechecked every 90 days</h3><p>Standards are reviewed every quarter. If a home falls short, it gets 30 days to fix it before the badge comes off.</p></div>
+    <div class="panel"><h3>Suspended right away</h3><p>If DSHS takes enforcement action, such as a stop-placement order or a license condition, the badge is suspended the same day until it's resolved.</p></div>
+    <div class="panel"><h3>Used honestly</h3><p>Homes may say they "meet the JIGS Quality standards" and must link the badge to this page. They may not call themselves "the best" or imply the state endorses the badge.</p></div>
+  </div>
+  <div class="panel" style="margin-top:22px"><h3>Where homes stand today</h3><p style="margin:6px 0 0">JIGS Quality opens with the first claimed homes. Until a home applies and passes, its listing says "Not yet assessed". That's not a mark against it, just an honest status.</p>
+    <div class="acts" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="pri" type="button" onclick="location.hash='claim'">Own a home? Claim it and start</button><button class="ghost" type="button" onclick="location.hash='find'">Find a home</button></div></div>
+</section>
+
+<section class="view" id="v-owner"><div class="col">
+  <h1>Owner dashboard</h1>
+  <p class="hl">Manage your profile, openings, and inquiries. Caregivers and families never pay.</p>
+  <div id="ownerBody"></div>
+</div></section>
+
+<section class="view" id="v-occupancy"><div class="col">
+  <h1>Occupancy & inquiries</h1>
+  <p class="hl">Manage advertised openings and family inquiries. No medical details collected.</p>
+  <div class="panel"><h3>Current availability</h3>
+    <form id="occF" novalidate>
+      <div class="row2"><label for="oc-p">Available private rooms<input id="oc-p" type="number" min="0" inputmode="numeric" aria-describedby="m-oc-p"><span class="fmsg" id="m-oc-p" data-for="oc-p"></span></label>
+      <label for="oc-s">Available shared beds<input id="oc-s" type="number" min="0" inputmode="numeric" aria-describedby="m-oc-s"><span class="fmsg" id="m-oc-s" data-for="oc-s"></span></label></div>
+      <label for="oc-n">Notes for families (optional)<textarea id="oc-n" rows="2" placeholder="For example: female preferred, available from December"></textarea></label>
+      <button class="pri" type="submit">Update openings</button>
+      <p class="note" id="occMsg" role="status"></p>
+    </form></div>
+  <div class="panel"><h3>Recent family inquiries</h3><div id="inqList"></div><p class="note">Sample inquiries. Replies are a prototype: nothing is sent.</p></div>
+</div></section>
+
+<section class="view" id="v-post-job"><div class="col">
+  <h1>Post a caregiver job</h1>
+  <p class="hl">Free for caregivers to view and apply. Listing shifts helps caregivers see if the job fits their availability.</p>
+  <div class="panel" id="jobPanel">
+    <form id="jobF" novalidate>
+      <label for="jb-t">Job title<input id="jb-t" placeholder="For example: Caregiver, evenings" aria-describedby="m-jb-t"><span class="fmsg" id="m-jb-t" data-for="jb-t"></span></label>
+      <div class="row2"><label for="jb-c">Location / city<input id="jb-c" placeholder="For example: Seattle" aria-describedby="m-jb-c"><span class="fmsg" id="m-jb-c" data-for="jb-c"></span></label>
+      <label for="jb-type">Job type<select id="jb-type"><option>Full-time</option><option>Part-time</option><option>Per diem</option><option>Live-in</option></select></label></div>
+      <div class="row2"><label for="jb-cred">Credential required<select id="jb-cred"><option value="HCA">Home Care Aide (HCA)</option><option value="NAC">Nursing Assistant Certified (NAC)</option><option value="HCA or NAC">HCA or NAC</option><option value="LPN or RN">Nurse (LPN or RN)</option><option value="Training provided">None: training provided</option></select></label>
+      <label for="jb-bonus">Bonus (optional)<input id="jb-bonus" placeholder="For example: $500 sign-on bonus"></label></div>
+      <div class="row2"><label for="jb-pmin">Pay from ($/hour)<input id="jb-pmin" type="number" min="1" step="0.25" inputmode="decimal" aria-describedby="m-jb-pmin"><span class="fmsg" id="m-jb-pmin" data-for="jb-pmin"></span></label>
+      <label for="jb-pmax">Pay to ($/hour)<input id="jb-pmax" type="number" min="1" step="0.25" inputmode="decimal" aria-describedby="m-jb-pmax"><span class="fmsg" id="m-jb-pmax" data-for="jb-pmax"></span></label></div>
+      <p class="note" style="margin:-4px 0 8px">Pay is required. Caregivers skip jobs that don't show it.</p>
+      <label for="jb-d">Hours / duties<textarea id="jb-d" rows="3" placeholder="Describe the role and typical hours"></textarea></label>
+      <fieldset><legend>Time of day needed</legend><div class="ckgrp" id="jb-times"></div></fieldset>
+      <fieldset><legend>Days needed</legend><div class="ckgrp" id="jb-days"></div><span class="fmsg" id="m-jb-days" role="alert"></span></fieldset>
+      <label for="jb-n">Notes (optional)<textarea id="jb-n" rows="2" placeholder="For example: looking for weekend evening coverage"></textarea></label>
+      <label class="ck feat"><input type="checkbox" id="jb-feat"><span><b>Feature this job</b>: shown first, with a Featured badge, for 30 days ($19, billed after launch)</span></label>
+      <button class="pri" type="submit">Post job</button>
+      <p class="note">Your job is sent to JIGS CARE and goes live after a quick check.</p>
+    </form></div>
+</div></section>
+
+<section class="view" id="v-readiness"><div class="col">
+  <h1>Inspection readiness</h1>
+  <p class="hl">Practical reminders for your public profile. This is not a clinical or medical checklist.</p>
+  <div class="panel"><h3>Profile readiness</h3><div id="rdList"></div>
+    <p class="note" style="margin-top:8px">Completing these items helps families find accurate information. Verification remains source + date only.</p></div>
+  <div class="panel"><h3>License check reminder</h3>
+    <p style="margin:0">License information last checked: <b id="rdDate"></b><br>Source: Washington DSHS licensing data (open data)</p>
+    <div class="links"><a href="https://fortress.wa.gov/dshs/adsaapps/lookup/AFHLookup.aspx">Open official Washington DSHS lookup</a></div></div>
+  <div class="panel"><h3>Free: the nine policy areas DSHS asks you to attest to</h3>
+    <p>On DSHS form 27-223, the Adult Family Home Policies and Procedures Attestation (Rev. 10/2025), adult family homes certify that their written policies and procedures cover, at a minimum, these nine areas. Each lines up with a section of WAC 388-76 or, for respiratory protection, Labor and Industries rules.</p>
+    <p class="warn">These boxes are for your own notes only. JIGS CARE does not provide official policies, templates, or legal advice. Always write your actual policies and confirm current requirements with DSHS.</p>
+    <div id="polList" style="margin-top:16px"></div>
+    <div class="links no-print"><a href="https://www.dshs.wa.gov/sites/default/files/forms/pdf/27-223.pdf">Form 27-223 (DSHS)</a><a href="https://app.leg.wa.gov/WAC/default.aspx?cite=388-76">WAC 388-76</a><a href="https://www.dshs.wa.gov/altsa/residential-care-services/adult-family-homes">DSHS adult family home page</a></div>
+    <div class="acts" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+      <button type="button" class="pri" id="polSave">Save my notes</button>
+      <button type="button" class="ghost" id="polCopy">Copy notes</button>
+      <button type="button" class="ghost" id="polDl">Download notes</button>
+      <button type="button" class="ghost" id="polPrint">Print / save as PDF</button>
+    </div>
+    <p class="note" id="polMsg" role="status" style="margin-top:8px"></p>
+  </div>
+</div></section>
+
+<section class="view" id="v-caregiver"><div class="col">
+  <h1>Caregiver profile</h1>
+  <p class="hl">Always free for caregivers. Find shifts that fit your schedule.</p>
+  <form id="cgP" novalidate>
+    <div class="panel"><h3>Basic information</h3>
+      <div class="row2"><label for="cp-n">Full name<input id="cp-n" autocomplete="name" aria-describedby="m-cp-n"><span class="fmsg" id="m-cp-n" data-for="cp-n"></span></label>
+      <label for="cp-c">City<input id="cp-c" autocomplete="address-level2" aria-describedby="m-cp-c"><span class="fmsg" id="m-cp-c" data-for="cp-c"></span></label></div>
+      <div class="row2"><label for="cp-t">Credential type<select id="cp-t"><option>Home Care Aide</option><option>Nursing Assistant</option><option>Other</option><option value="">None yet</option></select></label>
+      <label for="cp-i">Issuer<input id="cp-i" placeholder="For example: Washington State"></label></div>
+      <label for="cp-x" style="max-width:260px">Expiry date<input id="cp-x" type="date"></label>
+      <p class="note">Credential details are shown as you enter them. JIGS CARE does not verify credentials.</p></div>
+    <div class="panel"><h3>Availability preferences</h3>
+      <p style="margin-top:0">Tell us when you prefer to work. This helps match you with jobs that fit your schedule.</p>
+      <fieldset><legend>Preferred days</legend><div class="ckgrp" id="cp-days"></div></fieldset>
+      <fieldset><legend>Preferred time of day</legend><div class="ckgrp" id="cp-times"></div><span class="fmsg" id="m-cp-avail" role="alert"></span></fieldset>
+      <div class="row2"><label for="cp-w">Weekend preference<select id="cp-w"><option>Flexible</option><option>Prefer weekends</option><option>Prefer weekdays</option></select></label>
+      <label for="cp-h">Maximum hours per week<select id="cp-h"><option>Open</option><option>10</option><option>20</option><option>30</option><option>40</option></select></label></div>
+      <button class="pri" type="submit">Save profile</button>
+      <p class="note" id="cpMsg" role="status" style="margin-top:8px">Prototype: your profile is saved only in this browser.</p></div>
+  </form>
+</div></section>
+
+<section class="view" id="v-jobs"><div class="jobs-wrap">
+  <h1>Caregiver job search</h1>
+  <p class="hl">Always free for caregivers. Every job shows its pay. Jobs that fit your availability are marked.</p>
+  <div class="jfilters" id="jobFilters">
+    <label for="jf-q">City or keyword<input id="jf-q" type="search" placeholder="For example: Tacoma"></label>
+    <label for="jf-cred">Credential<select id="jf-cred"><option value="">Any</option><option value="HCA">HCA</option><option value="NAC">NAC</option><option value="LPN or RN">Nurse (LPN or RN)</option><option value="Training provided">No credential: training provided</option></select></label>
+    <label for="jf-type">Job type<select id="jf-type"><option value="">Any</option><option>Full-time</option><option>Part-time</option><option>Per diem</option><option>Live-in</option></select></label>
+    <label for="jf-time">Shift<select id="jf-time"><option value="">Any</option><option>Morning</option><option>Evening</option><option>Overnight</option></select></label>
+  </div>
+  <div id="jobList"></div>
+</div></section>
+
+<section class="view prose" id="v-privacy"><div class="col">
+  <h1>Privacy</h1>
+  <p class="lede">The short version: free for families and caregivers, no account needed to search, and we never sell your information.</p>
+  <h2>What this prototype stores</h2>
+  <p>Nothing is sent to a JIGS CARE server yet. Claims, tour requests, caregiver profiles, jobs, policy notes and settings are saved only in your own browser, on your own device. Clearing your browser data removes them.</p>
+  <h2>What we ask for</h2>
+  <ul><li>Searching needs no account and no personal details.</li><li>Tour inquiries ask for a name and a phone number or email. No medical details are required.</li><li>Caregiver profiles ask for name, city, credential details you choose to share, and availability.</li></ul>
+  <h2>Where listing data comes from</h2>
+  <p>Home listings come from Washington DSHS licensing records, which are public. License information shows only what was checked, the source, and the date. JIGS CARE does not inspect or certify homes.</p>
+  <h2>Questions</h2>
+  <p>Email hello@jigscare.com.</p>
+</div></section>
+
+<section class="view" id="v-guide"><div class="col">
+  <h1>How to choose an adult family home</h1>
+  <p class="lede">An adult family home is a licensed home in a regular neighborhood where a small number of adults, six or fewer in most homes and up to eight in some, live and get daily care. Here's a simple way to choose well.</p>
+  <ol class="gsteps">
+    <li><h2>Know the care you need</h2><p>Write down help needed with bathing, dressing, medicines, memory or behavior, and mobility. If dementia, mental health or a developmental disability is part of it, use those filters: they show homes with that state specialty.</p><p>Paying with Medicaid? Filter for <b>Medicaid contract</b>, and apply for state-funded care at your local Home and Community Services office.</p></li>
+    <li><h2>Check the license and inspection history</h2><p>Every JIGS CARE listing links to the home's record on the Washington DSHS site, including inspection reports. Homes must also keep their inspection reports from the past three years available for you to read, so ask to see them.</p></li>
+    <li><h2>Tour two or three homes</h2><p>Visit at different times of day if you can. Questions worth asking:</p>
+      <ul class="qlist"><li>Who is awake and on duty at night?</li><li>What training and credentials do caregivers have (HCA, NAC)?</li><li>What languages are spoken?</li><li>How are medicines handled and recorded?</li><li>What does the monthly cost include, and what costs extra?</li><li>What happens if care needs increase?</li><li>How much notice is given before a move-out, and why might that happen?</li><li>What does a typical day look like: meals, activities, outings?</li><li>How do you keep families updated?</li></ul></li>
+    <li><h2>Get free, local help</h2><p><b>Community Living Connections</b> (your local Area Agency on Aging) offers free advice on care options and benefits: <a href="https://www.waclc.org/connect" target="_blank" rel="noopener">waclc.org/connect</a>.</p><p>Concerns about care in a home? The <b>Washington Long-Term Care Ombudsman</b> helps residents and families for free: <a href="https://www.waombudsman.org/" target="_blank" rel="noopener">waombudsman.org</a>.</p><p>The state's own booklet, <a href="https://www.dshs.wa.gov/sites/default/files/publications/documents/22-707.pdf" target="_blank" rel="noopener">Choosing Care in an Adult Family Home or Assisted Living Facility</a>, goes deeper.</p></li>
+  </ol>
+  <p style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap"><button class="pri" type="button" onclick="location.hash='find'">Find a home</button><button class="ghost" type="button" onclick="try{print()}catch(e){}">Print this checklist</button></p>
+</div></section>
+<section class="view" id="v-saved">
+  <h1>Saved homes</h1>
+  <p class="lede">Homes you've tapped the heart on. Saved on this device only, so nothing is shared.</p>
+  <div id="cmpBox"></div>
+  <div class="grid" id="savedList"></div>
+</section>
+
+<section class="view" id="v-providers">
+  <h1>Fill your beds and your shifts in one place</h1>
+  <p class="lede">JIGS CARE is built for adult family home owners: a verified profile families trust, openings that reach them fast, and caregivers with valid Washington credentials.</p>
+  <div class="prov">
+    <div class="panel"><h3>Verified profile</h3><p>Your license, capacity and specialties come straight from state records. Add photos and a description, and earn the JIGS Verified badge.</p></div>
+    <div class="panel"><h3>Post openings</h3><p>Mark an open bed in seconds. Homes with openings show first in county searches.</p></div>
+    <div class="panel"><h3>Hire caregivers</h3><p>Post jobs free. Filter applicants by HCA or NAC status and required training. Coming next.</p></div>
+  </div>
+  <div class="tiers two">
+    <div class="panel tier"><span class="eyebrow">For every home</span><h3>Free listing</h3><div class="amt">$0<small style="font-size:16px"> forever</small></div><ul><li>Claimed, verified listing</li><li>Photos, description and open beds</li><li>Tour requests from families</li><li>Unlimited caregiver job posts</li><li>Inspection readiness and background check tracker</li><li>Eligible for the JIGS Quality badge</li></ul></div>
+    <div class="panel tier hi"><span class="eyebrow">Optional</span><h3>Featured placement</h3><div class="amt">$49<small style="font-size:16px">/month</small></div><ul><li>Your home in the moving Featured homes strip at the top of search</li><li>Your photo, city and open beds shown to every family who searches</li><li>Always marked as paid placement</li><li>Never changes the fair order of the main list</li><li>Cancel any time</li></ul></div>
+  </div>
+  <p style="margin-top:22px"><button class="pri" onclick="location.hash='claim'">Claim your home free</button></p>
+  <h2 style="margin-top:clamp(32px,5vw,48px)">Owner tools</h2>
+  <div class="tools">
+    <a href="#owner"><b>Owner dashboard</b><span>Your home, quick actions and recent activity</span></a>
+    <a href="#occupancy"><b>Occupancy & inquiries</b><span>Post open beds and answer families</span></a>
+    <a href="#post-job"><b>Post a caregiver job</b><span>Shifts and days, free for caregivers to apply</span></a>
+    <a href="#readiness"><b>Inspection readiness</b><span>Profile checklist and the nine DSHS policy areas</span></a>
+  </div>
+
+  <div class="panel" style="margin-top:clamp(32px,5vw,48px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center">
+    <span class="qb"><img src="logo-mark.svg" alt="">JIGS Quality</span>
+    <div><h3>Earn the JIGS Quality badge, free for every home</h3><p class="note" style="font-size:15px;margin-top:4px">Ten published standards, from a clean inspection record to family reviews. Badge homes stand out in every search, and families can see exactly what it means. <a href="#quality" style="color:var(--teal);font-weight:700">Read the standards</a></p></div>
+  </div>
+
+  <section class="trk" aria-labelledby="h-trk">
+    <h2 id="h-trk">Never miss a background check deadline</h2>
+    <p class="lede">Every caregiver needs a DSHS fingerprint check within 120 days of starting care, and a Washington name and date of birth check renewed every two years. JIGS CARE tracks both for every caregiver, free, and warns you before an inspector finds a gap.</p>
+    <div class="panel">
+      <h3>Background check tracker</h3>
+      <div class="trk-sum" id="trkSum" aria-live="polite"></div>
+      <div class="tbl"><table><thead><tr><th>Caregiver</th><th>Started care</th><th>WA name and DOB check</th><th>Fingerprint check</th><th>Next action</th><th></th></tr></thead><tbody id="trkBody"></tbody></table></div>
+      <form class="addrow" id="trkF" novalidate>
+        <label for="tk-n" class="wide">Caregiver name<input id="tk-n" autocomplete="off" aria-describedby="m-tk-n"><span class="fmsg" id="m-tk-n" data-for="tk-n"></span></label>
+        <label for="tk-s">Started care<input id="tk-s" type="date" aria-describedby="m-tk-s"><span class="fmsg" id="m-tk-s" data-for="tk-s"></span></label>
+        <label for="tk-w">Name and DOB check<input id="tk-w" type="date" aria-describedby="m-tk-w"><span class="fmsg" id="m-tk-w" data-for="tk-w"></span></label>
+        <label for="tk-f">Fingerprint cleared<input id="tk-f" type="date" aria-describedby="m-tk-f"><span class="fmsg" id="m-tk-f" data-for="tk-f"></span></label>
+        <button type="submit">Add caregiver</button>
+      </form>
+      <p class="note" style="margin-top:12px">Sample caregivers shown. Leave "Fingerprint cleared" empty if results are still pending. The tracker only tracks dates: checks are run by the DSHS Background Check Central Unit (BCCU). Caregivers who have lived in Washington under three years, or who live out of state, need the fingerprint check before relying on a name and DOB check alone.</p>
+    </div>
+  </section>
+</section>
+</main>
+
+<nav class="bnav" aria-label="Main">
+  <a href="#find" data-b="find" data-home><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Search</a>
+  <a href="#saved" data-b="saved"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.4-7.5-10.1A4.4 4.4 0 0 1 12 7.2a4.4 4.4 0 0 1 7.5 2.7C19.5 15.6 12 20 12 20Z"/></svg>Saved<span class="bcount" id="bcount" hidden></span></a>
+  <a href="#jobs" data-b="jobs"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="7.5" width="16" height="12" rx="2"/><path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5M4 12.5h16"/></svg>Jobs</a>
+  <a href="#providers" data-b="providers"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4.5 20 11"/><path d="M6 9.6V19a1 1 0 0 0 1 1h3.5v-5h3v5H17a1 1 0 0 0 1-1V9.6"/></svg>Owners</a>
+</nav>
+<footer><div class="wrap">
+  <div class="fcols">
+    <div><div class="fbrand" role="img" aria-label="JIGS CARE"><svg class="fm" viewBox="0 0 64 64" aria-hidden="true"><path fill="#FFFDF9" fill-rule="evenodd" d="M32.05 0.00L31.50 0.18L5.79 20.19L3.53 22.00L2.99 22.54L2.81 22.90L2.81 25.44L3.08 25.71L9.41 25.71L9.69 25.98L9.69 46.98L9.78 47.07L10.14 45.80L10.86 43.99L11.95 42.00L13.76 39.56L15.30 37.93L15.30 20.55L15.66 19.55L18.92 16.84L31.59 6.88L32.14 6.79L47.52 18.83L48.43 19.82L48.61 20.37L48.61 45.08L48.43 46.62L48.07 48.16L47.43 49.88L46.62 51.42L44.63 53.95L43.45 55.04L42.18 55.94L40.92 56.67L38.74 57.48L36.03 57.93L10.05 57.93L9.96 58.48L10.23 59.38L10.77 60.56L11.50 61.56L13.13 62.91L14.94 63.73L16.48 64.00L36.21 64.00L36.30 63.91L37.21 63.91L39.38 63.55L42.09 62.73L44.90 61.37L47.34 59.65L49.79 57.21L51.60 54.59L52.96 51.69L53.77 48.88L54.13 46.71L54.13 45.26L54.22 45.17L54.22 25.89L54.40 25.71L60.92 25.71L61.19 25.44L61.19 22.81L60.47 22.00L32.59 0.27Z"/><path fill="#FA746E" d="M44.18 33.22L43.54 32.77L42.82 32.68L42.18 32.86L41.37 33.40L40.46 34.58L38.47 38.56L37.11 40.46L35.49 42.09L34.67 42.73L32.95 43.72L31.32 44.36L28.88 44.81L27.61 44.81L26.52 44.45L26.25 44.08L26.25 43.45L27.07 42.64L30.60 40.55L31.50 39.83L32.23 39.02L32.68 37.93L32.68 37.02L32.32 36.21L31.50 35.76L30.96 35.76L30.33 35.94L28.79 36.84L26.34 37.93L23.72 38.65L21.73 39.38L19.19 40.83L18.29 41.55L16.57 43.36L15.84 44.45L15.03 46.17L14.57 47.62L14.21 49.70L14.21 50.96L14.12 51.06L14.21 54.13L14.30 54.22L27.16 54.22L29.78 53.77L31.59 53.23L34.22 52.05L36.12 50.87L37.93 49.43L39.83 47.43L41.37 45.26L42.36 43.45L43.18 41.55L43.81 39.65L44.36 37.30L44.54 35.94L44.54 34.13Z"/><circle cx="39.43" cy="25.81" r="4.99" fill="#FA746E"/></svg><svg class="wm" viewBox="0 0 345.82 40" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M314.55 0.00L314.18 0.36L314.18 39.64L314.55 40.00L345.45 40.00L345.82 39.64L345.82 34.18L345.45 33.82L321.45 33.82L320.73 33.09L320.73 24.00L321.45 23.27L343.64 23.27L344.00 22.91L344.00 17.45L343.64 17.09L321.82 17.09L320.73 16.00L320.73 7.27L321.82 6.18L326.18 6.18L326.55 6.55L345.45 6.18L345.82 5.82L345.82 0.36L345.45 0.00Z M266.55 0.00L266.18 0.36L266.18 39.64L266.55 40.00L272.36 40.00L272.73 39.64L272.73 7.27L273.45 6.55L282.91 6.55L283.27 6.18L288.73 6.55L290.18 6.18L290.55 6.55L293.45 6.55L294.91 7.27L296.73 9.45L297.09 10.55L297.09 15.27L296.36 17.09L294.91 18.55L292.00 19.64L281.09 19.64L280.73 20.36L295.64 39.64L296.36 40.00L303.27 40.00L303.64 39.27L293.45 26.18L294.18 25.09L297.09 24.36L299.27 23.27L301.45 21.09L302.55 19.27L303.64 14.55L303.64 10.55L302.91 7.64L301.45 4.73L298.91 2.18L294.55 0.36L292.00 0.36L291.64 0.00Z M233.82 0.00L233.09 0.73L225.82 15.64L223.27 21.82L216.36 35.64L214.91 39.64L215.27 40.00L221.09 40.00L221.82 39.64L225.82 30.18L234.55 12.00L234.55 11.27L235.27 9.82L236.36 9.09L237.09 9.82L239.64 15.27L239.64 16.00L250.18 39.27L250.91 40.00L257.09 40.00L257.45 39.64L257.09 38.18L239.64 0.73L238.91 0.00Z M175.64 4.00L173.09 6.91L171.64 9.82L170.18 16.00L170.55 26.91L172.00 31.64L173.82 34.55L178.18 38.18L181.82 39.64L183.64 39.64L184.00 40.00L206.18 40.00L206.55 39.64L206.55 34.18L206.18 33.82L185.09 33.82L182.55 33.09L180.36 31.64L178.55 29.45L177.09 25.09L177.09 14.55L178.91 10.18L181.45 7.64L182.91 6.91L187.64 6.55L188.00 6.18L198.55 6.18L198.91 6.55L206.18 6.18L206.55 5.82L206.55 0.36L206.18 0.00L185.45 0.00L179.64 1.45Z M115.27 2.91L112.73 5.82L111.64 8.36L111.27 14.18L112.36 17.45L115.64 21.09L118.55 22.55L122.91 22.91L123.27 23.27L138.91 23.27L140.73 24.00L142.91 26.55L142.91 29.82L141.09 32.73L138.18 33.82L113.82 33.82L113.09 35.27L113.09 39.64L113.45 40.00L139.64 40.00L143.27 38.91L145.09 37.82L147.64 35.27L149.09 31.64L149.45 27.64L149.09 27.27L148.73 23.64L147.64 21.45L144.36 18.55L140.00 17.09L121.45 16.73L118.55 14.55L117.82 13.09L117.82 10.55L118.55 8.73L119.64 7.64L122.18 6.55L126.18 6.55L126.55 6.18L146.18 6.18L146.55 5.82L146.55 0.36L146.18 0.00L123.27 0.00L118.55 1.09Z M67.27 3.64L63.64 8.36L61.82 14.91L61.82 25.45L62.18 25.82L62.18 28.00L62.91 30.55L65.09 34.55L67.64 37.09L69.45 38.18L75.27 40.00L100.36 40.00L100.73 39.64L100.73 17.82L100.36 17.45L83.64 17.45L83.27 17.82L83.27 23.27L83.64 23.64L93.82 23.64L94.55 24.36L94.55 33.09L93.82 33.82L76.00 33.82L72.36 32.36L70.18 30.18L69.09 28.00L68.73 24.36L68.36 24.00L68.73 14.18L70.18 10.55L72.00 8.36L74.55 6.91L79.64 6.55L80.00 6.18L82.55 6.18L82.91 6.55L85.09 6.55L85.45 6.18L96.73 6.55L97.09 6.18L98.91 6.18L99.27 5.82L99.27 0.36L98.91 0.00L77.45 0.00L70.91 1.45Z M44.00 0.00L43.64 0.36L43.64 39.64L44.00 40.00L50.18 40.00L50.55 39.64L50.55 0.36L50.18 0.00Z M30.18 0.00L24.36 0.00L24.00 0.36L24.00 26.55L22.55 30.55L20.36 32.73L17.82 33.82L0.36 33.82L0.00 34.18L0.00 39.64L0.36 40.00L18.91 40.00L22.18 39.27L24.36 38.18L27.27 35.64L29.09 32.36L30.55 26.18L30.55 0.36Z"/></svg></div><p style="color:#fff;font-weight:600">Intelligent Care. Trusted People. Healthier Families.</p><p><b style="display:inline;color:#fff">Free for families, caregivers and every home to list. Homes pay only to be featured.</b></p><p>Caregivers never pay to apply or create a profile. We never sell your information.</p></div>
+    <div><b>Families</b><a href="#find" data-home>Find a home</a><a href="#guide">How to choose a home</a><a href="/homes/">All homes by county</a><a href="#find" onclick="setTimeout(()=>document.getElementById('h-cty')?.scrollIntoView(),60)">Browse by county</a><a href="#find" onclick="setTimeout(()=>document.getElementById('h-how')?.scrollIntoView(),60)">How it works</a><a href="#privacy">Privacy</a></div>
+    <div><b>Owners</b><a href="#claim">Claim your home</a><a href="#providers">Free listing and Featured</a><a href="#owner">Owner dashboard</a><a href="#readiness">Inspection readiness</a><a href="#quality">JIGS Quality standards</a></div>
+    <div><b>Caregivers</b><a href="#caregiver">Create a free profile</a><a href="#jobs">Caregiver jobs</a><b style="margin-top:16px">Contact</b><a href="mailto:hello@jigscare.com">hello@jigscare.com</a></div>
+  </div>
+  <div class="fbase"><span>© 2026 JIGS CARE · jigscare.com</span><span id="src">Source: Washington DSHS long-term care residential care open data.</span><span>Sample house photos from <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> and <a href="https://unsplash.com/?utm_source=jigscare&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a>. They are not the actual homes.</span><span>License information shows only what was checked, the source, and the date. JIGS CARE does not certify homes.</span><span>A product of IRUSH GROUP LLC · Washington State</span></div>
+</div></footer>
+
+<!-- Netlify Forms: these hidden copies tell Netlify which fields each form has. Submissions appear
+     in Netlify → Site → Forms, and Netlify can email each one to hello@jigscare.com. -->
+<div hidden aria-hidden="true">
+<form name="tour-request" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="home"><input name="license"><input name="home_phone"><input name="name"><input name="contact"><textarea name="message"></textarea><input name="date"></form>
+<form name="claim-request" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="home"><input name="license"><input name="dshs_phone"><input name="name"><input name="role"><input name="email"><input name="callback_phone"><input name="best_time"></form>
+<form name="job-post" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="home"><input name="license"><input name="title"><input name="city"><input name="type"><input name="credential"><input name="pay"><input name="bonus"><input name="shifts"><input name="days"><textarea name="duties"></textarea><textarea name="notes"></textarea><input name="featured"></form>
+<form name="job-application" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="job"><input name="home"><input name="name"><input name="contact"><input name="credential"><textarea name="message"></textarea></form>
+<form name="review" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="home"><input name="license"><input name="name"><input name="relationship"><input name="rating"><textarea name="review"></textarea><input name="consent"></form>
+</div>
+<script>
+{
+const SPEC={D:'Dementia',M:'Mental health',X:'Developmental disabilities'};
+const KIND={A:'Adult family home',L:'Assisted living'};
+const PAGE=24,LANDN=6;
+let HOMES=[],BY={},AS_OF='';
+const st={q:'',county:'',type:'A',spec:new Set(),medicaid:false,ver:false,bil:false,budget:0,bedsMin:0,sort:'fair',shown:PAGE,browse:false};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const money=n=>'$'+Number(n).toLocaleString('en-US');
+const fmtDate=d=>new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+const TICK='<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.5" fill="currentColor"/><path d="M4.5 8.2l2.3 2.3 4.7-4.8" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>';
+
+let OWN={};
+try{OWN=JSON.parse(localStorage.getItem('jc-claims2')||'{}')}catch(e){OWN={}}
+/* Open beds go stale fast. Each posting is dated, and after 14 days without an update it stops showing
+   (the owner sees a reminder to confirm). Families only ever see openings confirmed in the last two weeks. */
+const FRESH_DAYS=14;
+for(const k in OWN){const o=OWN[k];if(!o.at)o.at=Date.now();if(o.open&&Date.now()-o.at>FRESH_DAYS*864e5){o.expired=o.open;o.open=0}}
+const ago=t=>{const d=Math.floor((Date.now()-t)/864e5);return d<1?'today':d===1?'yesterday':d+' days ago'};
+const saveOwn=()=>{try{localStorage.setItem('jc-claims2',JSON.stringify(OWN))}catch(e){}};
+const own=h=>OWN[h.lic];
+
+function house(seed){
+  let s=(seed%2147483646)+1;const r=()=>(s=s*16807%2147483647)/2147483647;
+  const roofs=['#007A80','#DB4F47','#7E9F77','#C9955A','#B6403B'],walls=['#FFFDF9','#F8F0E3','#F6EBDD','#FBF5EC'];
+  const roof=roofs[Math.floor(r()*5)],wall=walls[Math.floor(r()*4)],x=90+r()*120,w=120+r()*40;
+  const trees=[0,1,2].map(i=>{const tx=(i===0?20+r()*40:x+w+30+r()*60+i*40),th=40+r()*30;return `<rect x="${tx-2}" y="${112-th*.3}" width="4" height="${th*.3}" fill="#6b5040"/><ellipse cx="${tx}" cy="${112-th*.55}" rx="${14+r()*8}" ry="${th*.45}" fill="${i%2?'#93B38B':'#A7C4A0'}"/>`}).join('');
+  return `<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><rect width="400" height="130" fill="#F8E7CE"/><rect y="60" width="400" height="70" fill="#FBF1E3"/><circle cx="${330-r()*40}" cy="30" r="16" fill="#FA746E2e"/>${trees}<rect x="0" y="112" width="400" height="18" fill="#A7C4A0"/><rect x="${x}" y="68" width="${w}" height="46" fill="${wall}" stroke="#007A8022"/><path d="M${x-10} 70 L${x+w/2} 34 L${x+w+10} 70Z" fill="${roof}"/><rect x="${x+w/2-9}" y="88" width="18" height="26" fill="${roof}" opacity=".85"/><rect x="${x+14}" y="80" width="18" height="14" fill="#cfe3ee"/><rect x="${x+w-32}" y="80" width="18" height="14" fill="#cfe3ee"/><ellipse cx="${x+w/2}" cy="122" rx="${w/2+16}" ry="4" fill="#007A8022"/></svg>`;
+}
+/* illustrated rooms: seeded per home so each listing looks different but stays the same on every visit */
+function rng(seed){let s=(seed%2147483646)+1;return()=>(s=s*16807%2147483647)/2147483647}
+const pick=(r,a)=>a[Math.floor(r()*a.length)];
+const WALLS=['#F8F0E3','#F6EBDD','#FBF5EC','#F2ECE4','#EEF1E8','#F7EADF'],FLOORS=['#C9A27E','#B98D66','#D8BF9F','#BE9A73'],SOFT=['#007A80','#FA746E','#7E9F77','#E1B67A','#C98F5A','#B6403B'];
+const win=(x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" fill="#fff"/><rect x="${x+5}" y="${y+5}" width="${w-10}" height="${h-10}" fill="url(#sky)"/><ellipse cx="${x+w*.3}" cy="${y+h-12}" rx="${w*.3}" ry="10" fill="#7fb08f"/><path d="M${x+w/2} ${y+5}V${y+h-5}M${x+5} ${y+h/2}H${x+w-5}" stroke="#fff" stroke-width="4"/>`;
+const defs=`<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6DDB8"/><stop offset="1" stop-color="#FDF4E7"/></linearGradient><linearGradient id="sun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".35"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient></defs>`;
+const wrapSVG=(body,label)=>`<svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${label} (illustration)">${defs}${body}<rect width="400" height="260" fill="url(#sun)"/></svg>`;
+function room(seed,kind){
+  const r=rng(seed+kind.length*7919),wall=pick(r,WALLS),floor=pick(r,FLOORS),a=pick(r,SOFT),b=pick(r,SOFT.filter(c=>c!==a));
+  const base=`<rect width="400" height="260" fill="${wall}"/><rect y="190" width="400" height="70" fill="${floor}"/><path d="M0 190H400" stroke="#00000022" stroke-width="3"/><rect y="186" width="400" height="5" fill="#ffffff88"/>`;
+  if(kind==='bed')return wrapSVG(base+win(250+r()*40,40,100,90)+`<rect x="40" y="52" width="70" height="52" rx="3" fill="#fff"/><rect x="46" y="58" width="58" height="40" fill="${b}" opacity=".55"/><circle cx="64" cy="74" r="9" fill="#fff" opacity=".7"/>
+   <path d="M30 150H230" stroke="#9aa7ad" stroke-width="5" stroke-linecap="round"/><rect x="40" y="128" width="16" height="70" rx="4" fill="#8a6a52"/><rect x="40" y="150" width="190" height="40" rx="8" fill="#fff"/><rect x="40" y="166" width="190" height="30" rx="6" fill="${a}"/><rect x="40" y="168" width="190" height="6" fill="#ffffff55"/><rect x="58" y="138" width="44" height="20" rx="8" fill="#fff" stroke="#00000015"/><rect x="214" y="132" width="16" height="66" rx="4" fill="#8a6a52"/>
+   <rect x="250" y="160" width="44" height="38" rx="3" fill="#8a6a52"/><rect x="254" y="168" width="36" height="4" fill="#00000022"/><rect x="268" y="138" width="6" height="22" fill="#555"/><path d="M256 140h32l-7-20h-18z" fill="#fff3d6"/><ellipse cx="200" cy="232" rx="150" ry="14" fill="${b}" opacity=".35"/>`,'Bedroom');
+  if(kind==='living')return wrapSVG(base+win(40,36,120,96)+`<rect x="196" y="40" width="54" height="70" rx="3" fill="#fff"/><rect x="202" y="46" width="42" height="58" fill="${a}" opacity=".45"/>
+   <rect x="170" y="128" width="190" height="44" rx="14" fill="${a}"/><rect x="160" y="148" width="210" height="44" rx="12" fill="${a}"/><rect x="160" y="150" width="210" height="8" fill="#ffffff44"/><rect x="176" y="190" width="8" height="10" fill="#5b4636"/><rect x="346" y="190" width="8" height="10" fill="#5b4636"/><rect x="196" y="136" width="34" height="24" rx="8" fill="#fff" opacity=".9"/><rect x="300" y="136" width="34" height="24" rx="8" fill="${b}"/>
+   <ellipse cx="250" cy="226" rx="70" ry="10" fill="#00000018"/><rect x="200" y="206" width="100" height="10" rx="3" fill="#7a5a44"/><rect x="210" y="216" width="6" height="12" fill="#5b4636"/><rect x="284" y="216" width="6" height="12" fill="#5b4636"/><circle cx="232" cy="200" r="7" fill="${b}"/>
+   <rect x="60" y="168" width="40" height="30" rx="4" fill="#c4b39f"/><path d="M80 168c-20-30-10-55 0-70c10 15 20 40 0 70z" fill="#5d8a7a"/><path d="M80 168c-30-20-34-40-30-52c14 8 30 26 30 52z" fill="#4f7d68"/><path d="M80 168c30-20 34-40 30-52c-14 8-30 26-30 52z" fill="#6c9a7f"/>`,'Living room');
+  if(kind==='dining')return wrapSVG(base+`<rect x="0" y="120" width="140" height="70" fill="#fff"/><rect x="0" y="116" width="146" height="8" fill="#d6d0c8"/><rect x="0" y="40" width="130" height="50" fill="#fff"/><path d="M45 40V90M88 40V90M20 150h20M65 150h20M110 150h20" stroke="#00000022" stroke-width="3"/>`+win(170,36,90,80)+`
+   <path d="M290 0V60M340 0V60" stroke="#555" stroke-width="2"/><path d="M276 60h28l-6-14h-16zM326 60h28l-6-14h-16z" fill="${b}"/>
+   <ellipse cx="300" cy="236" rx="100" ry="10" fill="#00000018"/><rect x="220" y="160" width="160" height="12" rx="3" fill="#7a5a44"/><rect x="234" y="172" width="8" height="60" fill="#5b4636"/><rect x="358" y="172" width="8" height="60" fill="#5b4636"/>
+   <path d="M206 120v110M206 180h30v52" stroke="${a}" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M394 120v110M394 180h-30v52" stroke="${a}" stroke-width="8" fill="none" stroke-linecap="round"/>
+   <ellipse cx="300" cy="156" rx="22" ry="7" fill="#fff"/><circle cx="292" cy="150" r="6" fill="#e05d4f"/><circle cx="302" cy="148" r="6" fill="#f0b23d"/><circle cx="310" cy="152" r="6" fill="#7fb05a"/><rect x="250" y="150" width="16" height="8" rx="3" fill="#fff"/><rect x="334" y="150" width="16" height="8" rx="3" fill="#fff"/>`,'Dining area');
+  const grass=pick(r,['#8fbf7a','#9cc884','#86b56f']);
+  return wrapSVG(`<rect width="400" height="260" fill="url(#sky)"/><circle cx="${300+r()*60}" cy="44" r="22" fill="#fff6d0"/><ellipse cx="80" cy="150" rx="140" ry="40" fill="#b9d8a8"/><rect y="150" width="400" height="110" fill="${grass}"/>
+   <path d="M0 150H400" stroke="#ffffff66"/>${[0,1,2,3,4,5,6,7,8,9,10].map(i=>`<rect x="${i*40}" y="112" width="8" height="48" fill="#fff"/>`).join('')}<rect y="122" width="400" height="6" fill="#fff"/><rect y="142" width="400" height="6" fill="#fff"/>
+   <path d="M170 260C190 220 200 190 230 160" stroke="#e7dccb" stroke-width="34" fill="none"/>
+   <rect x="30" y="176" width="110" height="30" rx="4" fill="#9b6b4b"/>${[0,1,2,3,4,5,6].map(i=>`<circle cx="${42+i*15}" cy="${172-r()*8}" r="${6+r()*3}" fill="${pick(r,['#FA746E','#f0b23d','#e8a1c0','#fff','#c98fd6'])}"/><path d="M${42+i*15} 176v-6" stroke="#4f7d68" stroke-width="3"/>`).join('')}
+   <rect x="300" y="60" width="14" height="110" fill="#7a5a44"/><circle cx="307" cy="60" r="46" fill="#5d8a7a"/><circle cx="280" cy="78" r="30" fill="#6c9a7f"/><circle cx="334" cy="80" r="30" fill="#4f7d68"/>
+   <rect x="262" y="196" width="96" height="10" rx="3" fill="${a}"/><rect x="262" y="180" width="96" height="10" rx="3" fill="${a}"/><rect x="270" y="206" width="6" height="22" fill="#5b4636"/><rect x="344" y="206" width="6" height="22" fill="#5b4636"/><ellipse cx="310" cy="232" rx="56" ry="6" fill="#00000018"/>`,'Garden');
+}
+const ROOMS=[['outside','Outside'],['bed','Bedroom'],['living','Living room'],['dining','Dining area'],['garden','Garden']];
+function outside(lic){
+  const inner=house(+lic).replace('<svg viewBox="0 0 400 130" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><rect width="400" height="130" fill="#F8E7CE"/><rect y="60" width="400" height="70" fill="#FBF1E3"/>','<svg x="0" y="102" width="400" height="130" viewBox="0 0 400 130">');
+  return wrapSVG(`<rect width="400" height="260" fill="url(#sky)"/><ellipse cx="90" cy="70" rx="46" ry="12" fill="#fff" opacity=".8"/><ellipse cx="300" cy="50" rx="36" ry="10" fill="#fff" opacity=".7"/><rect y="230" width="400" height="30" fill="#a9c7b4"/>${inner}`,'Outside');
+}
+const scene=(lic,k)=>k==='outside'?outside(lic):room(+lic,k);
+function gallery(h){
+  return `<div class="gal" id="gal"><div class="gbig" id="gbig">${scene(h.lic,'outside')}${photo(h,1100,1)}</div>
+   <div class="gthumbs">${ROOMS.map(([k,t],i)=>`<button class="gt" data-k="${k}" aria-pressed="${i===0}" aria-label="${t}">${scene(h.lic,k)}</button>`).join('')}</div>
+   <p class="note gcap" id="gcap">${capFor(h,'outside','Outside')}</p></div>`;
+}
+const links=h=>({services:h.type==='A'?`https://fortress.wa.gov/dshs/adsaapps/lookup/AFHServices.aspx?lic=${h.lic}`:'',reports:`https://fortress.wa.gov/dshs/adsaapps/lookup/${h.type==='A'?'AFH':'BH'}Forms.aspx?lic=${h.lic}`});
+
+/* Fair order: a name can't buy position. Sorting ignores prefixes like "!!", "1st", "AAA", "A+", "001";
+   ties are broken by a rotation that reshuffles once a day (same order for everyone that day). */
+const sortKey=n=>{let s=n.toLowerCase();for(let i=0;i<6;i++){const t=s.replace(/^(?:[^a-z0-9]+|0+\d*\s*|1st\b\s*|#?1\b\s*|a\+\s*|a{2,}\b\s*|a-?1\b\s*|a[^a-z0-9\s]+|a\s+|the\s+|1(?=[a-z]))/,'');if(t===s)break;s=t}s=s||n.toLowerCase();return /^\d/.test(s)?'~'+s:s};
+const DAY=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'});
+const rot=k=>{let x=2166136261;for(const c of k+'|'+DAY){x^=c.charCodeAt(0);x=Math.imul(x,16777619)}return x>>>0};
+const bilingual=o=>!!o&&(o.lang||'').split(/,|\band\b|\//i).map(s=>s.trim()).filter(Boolean).length>=2;
+function filtered(){
+  const q=st.q.toLowerCase().trim();
+  const l=HOMES.filter(h=>(!st.type||h.type===st.type)&&(!st.county||h.county===st.county)&&(!q||h.hay.includes(q))&&[...st.spec].every(k=>h.spec.includes(k))&&(!st.medicaid||h.medicaid)&&(!st.ver||own(h))&&(!st.bil||bilingual(own(h)))&&(!st.budget||(own(h)&&own(h).lo&&own(h).lo<=st.budget))&&(!st.bedsMin||(own(h)&&own(h).open>=st.bedsMin)));
+  const rel=q?h=>(h.lic===q?0:(h.city.toLowerCase()===q||h.zip===q)?1:h.sk.startsWith(sortKey(q))?2:3):()=>0;
+  const tier=h=>{const o=own(h);return o?(o.open?0:1):2};
+  const fair=(a,b)=>rel(a)-rel(b)||tier(a)-tier(b)||a.rot-b.rot;
+  const num=x=>x.sk[0]==='~'?1:0,nm=(a,b)=>num(a)-num(b)||a.sk.localeCompare(b.sk)||a.rot-b.rot;
+  const by={fair,name:nm,bedsd:(a,b)=>b.beds-a.beds||a.rot-b.rot,bedsa:(a,b)=>a.beds-b.beds||a.rot-b.rot};
+  return l.sort(by[st.sort]||fair);
+}
+
+/* Sample house photos: one per home, picked from its license number, so a home shows the same house
+   on its card and its page. They are NOT the actual homes, so each carries a "Sample photo" label.
+   An owner's real photos (later) replace them. If a photo can't load, the drawn illustration shows. */
+const PHOTOS=['photo-1787094523866-2556cb09110f','photo-1787094497609-5efe6029b950','photo-1631458325834-8f678e48912c','photo-1787094517400-ee58a5decd95','photo-1625602812206-5ec545ca1231','photo-1628624747271-4df6ca1e1ba3','photo-1631149784601-8e6c266b046a','photo-1570129477492-45c003edd2be','photo-1767832340276-d59223a88d3c','photo-1558036117-15d82a90b9b1','photo-1586982599726-11708daaceca','photo-1762119594563-fc90dabb6161','photo-1745808930196-e03bf5fe6c02','photo-1785108582166-933ba80037fe','photo-1755114203680-d39d95efa82c','photo-1761013320045-d29e4f10bcbc','photo-1760648984277-2c7ea436a10b'];
+const PICK={},RECENT=[];
+const photoId=h=>{const k=String(h.lic);if(PICK[k]==null){let x=2166136261;for(const c of k){x^=c.charCodeAt(0);x=Math.imul(x,16777619)}
+  let i=(x>>>0)%PHOTOS.length;while(RECENT.includes(i))i=(i+1)%PHOTOS.length; // never the same house as the last 6 shown
+  PICK[k]=i}RECENT.push(PICK[k]);if(RECENT.length>6)RECENT.shift();return PHOTOS[PICK[k]]};
+/* photos.json (built by scripts/fetch_photos.py) gives every home its own stock photo:
+   PH.photos = [["p", pexelsId, photographer] | ["u", unsplashPath, photographer, username]], PH.map = {license: index} */
+let PH=null;
+const SRCNAME={p:'Pexels',u:'Unsplash'};
+function samplePhoto(h){const i=PH&&PH.map?PH.map[h.lic]:null;const p=i!=null&&PH.photos[i];if(!p)return null;
+  return {p,url:(wd)=>p[0]==='p'?`https://images.pexels.com/photos/${p[1]}/pexels-photo-${p[1]}.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=${wd}&h=${Math.round(wd*.625)}`:`https://images.unsplash.com/${p[1]}?auto=format&fit=crop&w=${wd}&h=${Math.round(wd*.625)}&q=70`,
+    by:p[2]||'',src:SRCNAME[p[0]]||'',page:p[0]==='p'?`https://www.pexels.com/photo/${p[1]}/`:(p[3]?`https://unsplash.com/@${p[3]}?utm_source=jigscare&utm_medium=referral`:'https://unsplash.com/?utm_source=jigscare&utm_medium=referral')}}
+const ownerPhoto=h=>{const o=h.sample?null:own(h);return o&&o.photo||''};
+const photo=(h,wd,eager)=>{
+  const op=ownerPhoto(h);
+  if(op)return `<span class="phw"><img class="ph in" src="${op}" alt="Outside ${esc(h.name)}, photo from the owner" decoding="async"></span>`;
+  const sp=samplePhoto(h);
+  const src=sp?sp.url(wd):`https://images.unsplash.com/${photoId(h)}?auto=format&fit=crop&w=${wd}&h=${Math.round(wd*.625)}&q=70`;
+  const alt=sp&&sp.by?`Sample photo by ${esc(sp.by)} on ${sp.src}, not ${esc(h.name)}`:`Sample photo of a house, not ${esc(h.name)}`;
+  return `<span class="phw"><img class="ph" src="${src}" alt="${alt}" ${eager?'':'loading="lazy" '}decoding="async" onload="this.classList.add('in')" onerror="this.parentNode.remove()"><span class="sph">Sample photo</span></span>`};
+function capFor(h,k,label){
+  if(k!=='outside')return `${label} · Illustration. The owner can add real photos.`;
+  if(ownerPhoto(h))return `${label} · Photo from the owner.`;
+  const sp=samplePhoto(h);
+  return `${label} · Sample photo${sp&&sp.by?` by <a href="${sp.page}" target="_blank" rel="noopener">${esc(sp.by)}</a> on ${sp.src}`:''}, not this home. The owner can replace it with a real photo.`}
+/* ───── Featured homes strip (paid placement), scrolling right to left ─────
+   Real homes appear only when their owner turned on Featured placement (OWN[lic].featured).
+   Until any home has, the strip shows clearly labelled fictional examples. */
+const HL_SAMPLES=[['Cedar Porch Family Home','Kent'],['Maple Lane Adult Family Home','Tacoma'],['Hillside Haven Home','Everett'],['Rosewood Garden Home','Bellevue'],['Lakeside Comfort Home','Renton'],['Evergreen Hearth AFH','Vancouver']]
+  .map(([name,city],i)=>({lic:'EX'+(i+1),name,city,n:7301+i*37,sample:true}));
+function hlCard(h,hide){const o=h.sample?null:own(h);
+  return `<li${hide?' aria-hidden="true"':''}><a class="hlc" href="${h.sample?'#providers':'#home-'+h.lic}"${hide?' tabindex="-1"':''} aria-label="${esc(h.name)}, ${esc(h.city)}. ${h.sample?'Example of a featured home. See Featured placement':'Featured home, paid placement. View home'}">
+   <span class="hlp">${house(h.n??+h.lic)}${photo(h,560)}<span class="hlb">★ ${h.sample?'Example':'Featured'}</span></span>
+   <span class="hlt"><b>${esc(h.name)}</b><span>${esc(h.city)}, WA</span>${o&&o.open?`<em>${o.open} open bed${o.open>1?'s':''}</em>`:''}</span></a></li>`}
+function hlRender(){
+  const real=HOMES.filter(h=>own(h)&&own(h).featured),base=real.length?real:HL_SAMPLES;
+  const set=Array.from({length:Math.max(1,Math.ceil(7/base.length))},()=>base).flat();
+  // two identical copies: the track slides exactly one copy (-50%) and loops with no seam
+  $('#hlTrack').innerHTML=`<ul>${set.map((h,i)=>hlCard(h,i>=base.length)).join('')}</ul><ul class="hl-dupe" aria-hidden="true" inert>${set.map(h=>hlCard(h,true)).join('')}</ul>`;
+  $('#hlTrack').style.setProperty('--hl-dur',Math.round(set.length*296/34)+'s');
+  $('#hlNote').textContent=real.length?'Paid placement. Every home is still checked against Washington DSHS records.':'Examples of how featured homes will look. No home has paid to be featured yet.';
+  $('#hlSec').hidden=false;
+}
+document.getElementById('hlPause').addEventListener('click',e=>{const b=e.currentTarget,v=$('#hlView'),p=b.getAttribute('aria-pressed')!=='true';
+  b.setAttribute('aria-pressed',p);p?v.setAttribute('data-paused',''):v.removeAttribute('data-paused');
+  b.querySelector('span').textContent=p?'Play':'Pause';b.querySelector('svg').innerHTML=p?'<path d="M6 4.5v11l9-5.5-9-5.5Z"/>':'<path d="M5.5 4h3v12h-3zM11.5 4h3v12h-3z"/>'});
+const cardPic=h=>{const k=['outside','outside','garden','living','bed'][(+h.lic)%5];return k==='outside'?house(+h.lic):scene(h.lic,k)};
+const cleanName=n=>{let s=n;for(let i=0;i<6;i++){const t=s.replace(/^(?:[^A-Za-z0-9]+|0\d*\s+|1(?=[^0-9A-Za-z])\s*)\s*/,'');if(t===s)break;s=t}return (s||n).replace(/(\d)(St|Nd|Rd|Th)\b/g,(m,d,x)=>d+x.toLowerCase()).replace(/&([a-z])\b/g,(m,x)=>'&'+x.toUpperCase())};
+/* saved homes (hearts): kept on this device only */
+let SAVED=new Set((()=>{try{return JSON.parse(localStorage.getItem('jc-saved')||'[]')}catch(e){return[]}})());
+const HEART='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.4-7.5-10.1A4.4 4.4 0 0 1 12 7.2a4.4 4.4 0 0 1 7.5 2.7C19.5 15.6 12 20 12 20Z"/></svg>';
+const favBtn=(h,big)=>{const on=SAVED.has(String(h.lic));return `<button type="button" class="fav${big?' big':''}" data-fav="${h.lic}" aria-pressed="${on}" aria-label="${on?'Remove':'Save'} ${esc(h.name)} ${on?'from':'to'} saved homes">${HEART}</button>`};
+function syncSaved(){const n=SAVED.size,b=document.getElementById('bcount');if(b){b.textContent=n;b.hidden=!n}}
+function toggleFav(lic){lic=String(lic);SAVED.has(lic)?SAVED.delete(lic):SAVED.add(lic);try{localStorage.setItem('jc-saved',JSON.stringify([...SAVED]))}catch(e){}
+  document.querySelectorAll(`[data-fav="${lic}"]`).forEach(b=>{const on=SAVED.has(lic);b.setAttribute('aria-pressed',on);b.setAttribute('aria-label',b.getAttribute('aria-label').replace(/^(Save|Remove)/,on?'Remove':'Save').replace(/ (to|from) saved/,on?' from saved':' to saved'));if(on&&!RM.matches)play(b,[{transform:'scale(1)'},{transform:'scale(1.22)'},{transform:'scale(1)'}],{duration:320})});
+  syncSaved();if(document.getElementById('v-saved').classList.contains('on'))savedView()}
+let CMP=[];
+function cmpRender(){const l=[...SAVED].map(k=>BY[k]).filter(Boolean),box=$('#cmpBox');if(!box)return;
+  if(l.length<2){box.innerHTML='';return}
+  CMP=CMP.filter(k=>SAVED.has(k));if(!CMP.length)CMP=l.slice(0,3).map(h=>String(h.lic));
+  const sel=CMP.map(k=>BY[k]).filter(Boolean);
+  const row=(t,f)=>`<tr><th scope="row">${t}</th>${sel.map(h=>`<td>${f(h,own(h))}</td>`).join('')}</tr>`;
+  box.innerHTML=`<div class="panel cmp"><h2 style="margin-top:0">Compare side by side</h2><p class="note">Pick up to 3 of your saved homes.</p>
+   <div class="cmpck">${l.map(h=>`<label class="ck"><input type="checkbox" data-cmp="${h.lic}" ${CMP.includes(String(h.lic))?'checked':''}><span>${esc(h.name)}</span></label>`).join('')}</div>
+   ${sel.length?`<div class="tbl"><table><thead><tr><th></th>${sel.map(h=>`<th scope="col"><a href="#home-${h.lic}">${esc(h.name)}</a></th>`).join('')}</tr></thead><tbody>
+   ${row('City',h=>`${esc(h.city)}, ${esc(h.county)} County`)}${row('Type',h=>KIND[h.type])}${row('Licensed beds',h=>h.beds)}
+   ${row('Open beds',(h,o)=>o&&o.open?`${o.open} <span class="note">(updated ${ago(o.at)})</span>`:'Not posted')}${row('Monthly cost',(h,o)=>o&&o.lo?`${money(o.lo)}${o.hi>o.lo?'–'+money(o.hi):''}`:'Not posted')}
+   ${row('Specialties',h=>[...h.spec].map(k=>SPEC[k]).join(', ')||'None listed')}${row('Medicaid contract',h=>h.medicaid?'Yes':'No')}
+   ${row('Family reviews',h=>{const r=REVIEWS.filter(x=>String(x.lic)===String(h.lic));return r.length?`${(r.reduce((a,x)=>a+x.rating,0)/r.length).toFixed(1)} from ${r.length}`:'None yet'})}
+   ${row('Inspection reports',h=>`<a href="${links(h).reports}" target="_blank" rel="noopener">DSHS reports</a>`)}${row('Phone',h=>`<a href="tel:${(h.phone.match(/\d/g)||[]).join('')}">${esc(h.phone)}</a>`)}
+   </tbody></table></div>`:''}</div>`}
+document.addEventListener('change',e=>{const c=e.target.closest('[data-cmp]');if(!c)return;const k=c.dataset.cmp;
+  if(c.checked){if(CMP.length>=3){c.checked=false;shake(c.parentElement);return}CMP.push(k)}else CMP=CMP.filter(x=>x!==k);cmpRender()});
+function savedView(){cmpRender();const l=[...SAVED].map(k=>BY[k]).filter(Boolean);
+  $('#savedList').innerHTML=l.length?l.map(card).join(''):(HOMES.length?stateBox('empty','No saved homes yet','Tap the heart on any home to keep it here while you compare. Saved on this device only.','<button class="pri" type="button" onclick="location.hash=\'find\'">Find a home</button>'):SKELS(2))}
+document.addEventListener('click',e=>{const f=e.target.closest('[data-fav]');if(!f)return;e.stopPropagation();e.preventDefault();toggleFav(f.dataset.fav)},true);
+
+function card(h){
+  const o=own(h);
+  const tags=[...h.spec].map(k=>`<span class="tag sp">${SPEC[k]}</span>`).join('')+(h.medicaid?'<span class="tag">Medicaid</span>':'');
+  return `<article class="card" tabindex="0" data-id="${h.lic}">
+   <div class="thumb">${cardPic(h)}${photo(h,640)}${o&&o.open?`<span class="open">${o.open} open bed${o.open>1?'s':''}</span>`:''}<span class="kind">${KIND[h.type]}</span>${favBtn(h)}</div>
+   <div class="body"><h3>${esc(h.name)}</h3>
+    <div class="meta">${esc(h.city)}, ${esc(h.county)} County · ${h.beds} bed${h.beds===1?'':'s'}</div>
+    ${o&&(o.lo||o.open)?`<div class="kv">${o.lo?`<b class="price">From ${money(o.lo)}/mo</b>`:''}${o.open?`<span class="fresh">Openings updated ${ago(o.at)}</span>`:''}</div>`:''}
+    ${tags?`<div class="tags">${tags}</div>`:''}
+    <div class="foot"><span class="lic" title="License ${h.lic} checked ${AS_OF}. Source: Washington DSHS">✓ DSHS licensed${o&&o.verified?' · Owner-verified':''}</span><span class="viewbtn">View home</span></div>
+   </div></article>`;
+}
+
+
+/* motion: every animation goes through play(), which cancels whatever is running on that element first,
+   so rapid clicks restart the transition instead of queueing it. Reduced motion = opacity only, no movement. */
+const RM=matchMedia('(prefers-reduced-motion: reduce)'),NARROW=matchMedia('(max-width: 600px)');
+function play(el,kf,o){if(!el||!el.animate)return null;el.getAnimations().forEach(a=>a.cancel());return el.animate(kf,{duration:200,easing:'cubic-bezier(.2,.7,.3,1)',...o})}
+const enter=el=>RM.matches?play(el,[{opacity:.5},{opacity:1}],{duration:140}):play(el,[{opacity:.35,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:220});
+const swapIn=el=>RM.matches?play(el,[{opacity:.2},{opacity:1}],{duration:140}):NARROW.matches?play(el,[{opacity:.3,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:200}):play(el,[{opacity:.3,transform:'translateX(14px)'},{opacity:1,transform:'none'}],{duration:220});
+function shake(el){if(!el)return;el.classList.add('bad');el.setAttribute('aria-invalid','true');if(RM.matches)return;play(el,[{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(-4px)'},{transform:'translateX(4px)'},{transform:'translateX(0)'}],{duration:300,easing:'ease-in-out'})}
+function clearBad(form){form.addEventListener('input',e=>{const t=e.target;if(t.classList.contains('bad')){t.classList.remove('bad');t.removeAttribute('aria-invalid');const m=form.querySelector(`[data-for="${t.id}"]`);if(m)m.textContent=''}})}
+/* rules: [inputId, test(value) -> error message or ''] ; shows every error, shakes each bad field, focuses the first */
+function validate(form,rules){let first=null;for(const[id,test]of rules){const el=form.querySelector('#'+id),msg=test(el.value.trim(),el);const m=form.querySelector(`[data-for="${id}"]`);if(m)m.textContent=msg||'';if(msg){shake(el);first=first||el}else{el.classList.remove('bad');el.removeAttribute('aria-invalid')}}if(first)first.focus({preventScroll:false});return !first}
+const SKELS=n=>Array.from({length:n},()=>'<div class="sk" aria-hidden="true"><i class="ph"></i><i class="t"></i><i class="s"></i><i></i></div>').join('');
+const ART={
+ empty:'<svg viewBox="0 0 220 140" aria-hidden="true"><ellipse cx="110" cy="128" rx="90" ry="8" fill="#007A8014"/><path d="M40 70 80 38l40 32v52H40z" fill="#fff" stroke="#007A80" stroke-width="3" stroke-linejoin="round"/><path d="M32 74 80 34l48 40" fill="none" stroke="#FA746E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><rect x="70" y="92" width="20" height="30" rx="2" fill="#d3e3ea"/><circle cx="150" cy="82" r="24" fill="#ffffffcc" stroke="#007A80" stroke-width="5"/><path d="m168 100 22 22" stroke="#007A80" stroke-width="8" stroke-linecap="round"/><path d="M140 82h20" stroke="#FA746E" stroke-width="4" stroke-linecap="round"/></svg>',
+ error:'<svg viewBox="0 0 220 140" aria-hidden="true"><ellipse cx="110" cy="128" rx="90" ry="8" fill="#007A8014"/><path d="M60 72 100 40l40 32v50H60z" fill="#fff" stroke="#007A80" stroke-width="3" stroke-linejoin="round"/><path d="M52 76 100 36l48 40" fill="none" stroke="#007A80" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M146 30c-14 0-20 8-20 16-10 0-16 6-16 14h64c0-8-6-14-14-14 0-10-6-16-14-16z" fill="#d3e3ea"/><path d="M134 66l-6 12h10l-6 12" fill="none" stroke="#FA746E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><rect x="90" y="92" width="20" height="30" rx="2" fill="#d3e3ea"/></svg>'};
+const stateBox=(art,title,text,acts)=>`<div class="state" role="status">${ART[art]}<h3>${title}</h3><p>${text}</p><div class="acts">${acts}</div></div>`;
+let LAST=[],rq=0,tq=0;
+function scheduleList(){clearTimeout(rq);rq=setTimeout(()=>{rq=0;renderList();drawMap()},0)}
+function resetFilters(){Object.assign(st,{q:'',county:'',type:'A',medicaid:false,ver:false,bil:false,budget:0,bedsMin:0,shown:PAGE,browse:true});$('#budget').value='';$('#bedsmin').value='';st.spec.clear();$('#q').value='';$('#county').value='';$('#type').value='A';syncChips();renderList();$('#q').focus()}
+
+function place(){return st.county?`${st.county} County, WA`:'Washington'}
+function renderList(append){
+  if(!HOMES.length)return;
+  const prev=append?$('#list').querySelectorAll('.card').length:0;
+  const l=append?LAST:filtered();LAST=l;
+  const kind=st.type==='L'?'assisted living communit':st.type==='A'?'adult family home':'licensed home';
+  const plural=st.type==='L'?(l.length===1?'y':'ies'):(l.length===1?'':'s');
+  $('#count').textContent=`${l.length.toLocaleString('en-US')} ${kind}${plural} in ${place()}`;
+  const landing=!st.browse&&!st.q.trim()&&!st.county&&!st.spec.size&&!st.medicaid&&!st.ver&&!st.bil&&!st.budget&&!st.bedsMin&&st.type==='A'&&st.sort==='fair';
+  $('#ownerNote').hidden=!(st.budget||st.bedsMin||st.bil);
+  const lim=landing?LANDN:st.shown;$('#homeSecs').hidden=!landing;
+  const list=$('#list');list.removeAttribute('aria-busy');
+  if(append&&prev){list.insertAdjacentHTML('beforeend',l.slice(prev,st.shown).map(card).join(''));[...list.children].slice(prev).forEach(enter)}
+  else{list.innerHTML=l.length?l.slice(0,lim).map(card).join(''):stateBox('empty','No homes match these filters',`Nothing in ${place()} fits ${st.q?`“${esc(st.q)}” and `:''}the filters you picked. Try another spelling, a nearby city, or fewer filters.`,'<button class="pri" type="button" data-act="clear">Clear search and filters</button>');if(!l.length)enter(list.firstElementChild)}
+  $('#more').hidden=l.length<=lim;
+  $('#more').textContent=landing?`Browse all ${l.length.toLocaleString('en-US')} adult family homes`:`Show more homes (${(l.length-st.shown).toLocaleString('en-US')} left)`;
+  if(landing&&l.length)$('#count').textContent=`Today's rotation: ${LANDN} of ${l.length.toLocaleString('en-US')} adult family homes in Washington`;
+  const t=st.type==='L'?'Assisted Living':st.type==='A'?'Adult Family Homes':'Senior Care Homes';
+  document.title=`${t} in ${place()} | JIGS CARE`;
+  $('#fairNote').hidden=st.sort!=='fair'||!l.length;
+}
+
+function syncChips(){document.querySelectorAll('#chips .chip').forEach(b=>{const k=b.dataset.k;b.setAttribute('aria-pressed',k==='medicaid'?st.medicaid:k==='ver'?st.ver:k==='bil'?st.bil:st.spec.has(k.slice(2)))})}
+function chips(){
+  const items=[...Object.entries(SPEC).map(([k,t])=>['s:'+k,t]),['medicaid','Medicaid contract'],['bil','Bilingual'],['ver','Owner-verified']];
+  $('#chips').innerHTML=items.map(([k,t])=>{const on=k==='medicaid'?st.medicaid:k==='ver'?st.ver:k==='bil'?st.bil:st.spec.has(k.slice(2));return `<button class="chip" data-k="${k}" aria-pressed="${on}">${t}</button>`}).join('');
+}
+
+function renderHome(lic){
+  const h=BY[lic];if(!h){location.hash='find';return}
+  const o=own(h),L=links(h),map=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(h.addr+', '+h.city+', WA '+h.zip)}`;
+  document.title=`${h.name}, ${h.city} WA – License & Reports | JIGS CARE`;
+  $('#v-home').innerHTML=`<button class="back" onclick="location.hash='find'">← Back to homes</button>
+  <div class="hero"><div class="hinfo">
+    <div class="ptitle"><h1>${esc(h.name)}</h1>${favBtn(h,true)}</div>
+    <p class="meta" style="margin:8px 0">${KIND[h.type]} · ${esc(h.addr)}, ${esc(h.city)}, WA ${esc(h.zip)} · ${o?(o.verified?`<span class="ver">${TICK} Owner-verified listing</span>`:'Claim pending: JIGS CARE is confirming it with the licensed provider'):'Not yet claimed by owner'}</p>
+    <p>${o&&o.desc?esc(o.desc):'This listing comes from Washington state licensing records. The owner has not added a description yet.'}</p>
+    <div class="facts">
+      <div class="fact"><span>Licensed capacity</span><b>${h.beds} resident${h.beds===1?'':'s'}</b></div>
+      <div class="fact"><span>Openings</span><b>${o?(o.open?o.open+' open bed'+(o.open>1?'s':''):'Full right now'):'Not posted yet'}</b></div>
+      <div class="fact"><span>Specialties (state license)</span><b>${[...h.spec].map(k=>SPEC[k]).join(', ')||'None listed'}</b></div>
+      <div class="fact"><span>Medicaid</span><b>${h.medicaid?'Has a DSHS contract':'No DSHS contract listed'}</b></div>
+      ${o&&o.lo?`<div class="fact"><span>Monthly cost (from owner)</span><b>${money(o.lo)} to ${money(o.hi)}</b></div>`:''}
+      ${o&&o.lang?`<div class="fact"><span>Languages (from owner)</span><b>${esc(o.lang)}</b></div>`:''}
+      <div class="fact"><span>Phone</span><b>${esc(h.phone)||'Not listed'}</b></div>
+      <div class="fact"><span>County</span><b>${esc(h.county)}</b></div>
+    </div>
+    <div class="panel"><h3>License and inspections</h3>
+      <div class="vbox"><b>License status: Checked</b><br>What was checked: license ${h.lic} is active${h.contracts?`; DSHS contracts: ${esc(h.contracts)}`:''}<br>Source: Washington DSHS licensing data (open data)<br>Date checked: ${AS_OF}<br>${h.type==='A'?'<a href="https://fortress.wa.gov/dshs/adsaapps/lookup/AFHLookup.aspx">Open official Washington DSHS lookup</a>':''}</div>
+      <div class="links"><a href="${L.reports}">Inspection reports (DSHS)</a>${L.services?`<a href="${L.services}">Services disclosure (DSHS)</a>`:''}<a href="${map}">Map</a></div>
+      <p class="note" style="margin-top:10px">JIGS CARE does not inspect or certify homes; the official reports are on the state site.</p></div>
+    <div class="panel" id="revPanel"><h3>Family reviews</h3>${reviewsHTML(h)}</div>
+    <div class="panel"><h3>JIGS Quality</h3>${o?meterHTML(h,o,false):`<p style="margin:0"><b>Not yet assessed.</b> This home hasn't applied for JIGS Quality yet. That isn't a mark against it.</p>`}<p class="note" style="margin-top:10px"><a href="#quality" style="color:var(--teal);font-weight:700">What JIGS Quality means</a></p></div>
+  </div><div class="hgal">${gallery(h)}</div><div class="htour">
+    <div class="panel"><h3>Request a tour</h3>
+      <form id="tourF" novalidate>
+        <label for="tn">Your name<input id="tn" required autocomplete="name" aria-describedby="m-tn"><span class="fmsg" id="m-tn" data-for="tn"></span></label>
+        <label for="tp">Phone or email<input id="tp" required aria-describedby="m-tp"><span class="fmsg" id="m-tp" data-for="tp"></span></label>
+        <label for="tw">Anything you'd like the home to know (optional)<textarea id="tw" placeholder="For example: looking for a private room for my mother, starting next month"></textarea><span class="note">No medical details needed. Share those with the home directly if you choose.</span></label>
+        <label for="td">Preferred tour date<input id="td" type="date" aria-describedby="m-td"><span class="fmsg" id="m-td" data-for="td"></span></label>
+        <button class="pri" type="submit">Request tour</button>
+        <p class="note">Goes to JIGS CARE and is passed only to this home. No call center, and we never sell your information.</p>
+      </form></div>
+    ${o?'':`<div class="panel"><h3>Own this home?</h3><p class="note" style="margin-bottom:10px">Claim it free to add a description, post openings and hire caregivers.</p><button onclick="location.hash='claim-${h.lic}'">Claim this listing</button></div>`}
+  </div></div>`;
+  $('#gal').addEventListener('click',e=>{const t=e.target.closest('.gt');if(!t||t.getAttribute('aria-pressed')==='true')return;const k=t.dataset.k;const big=$('#gbig');big.innerHTML=scene(h.lic,k)+(k==='outside'?photo(h,1100,1):'');swapIn(big.firstElementChild);document.querySelectorAll('.gt').forEach(x=>x.setAttribute('aria-pressed',x===t));$('#gcap').innerHTML=capFor(h,k,t.getAttribute('aria-label'))});
+  $('#revPanel').addEventListener('click',e=>{if(!e.target.closest('[data-rev]'))return;const p=$('#revPanel');
+    p.querySelector('[data-rev]').replaceWith(Object.assign(document.createElement('div'),{innerHTML:`<form id="revF" novalidate>
+      <div class="row2"><label for="rv-n">Your first name<input id="rv-n" autocomplete="given-name" aria-describedby="m-rv-n"><span class="fmsg" id="m-rv-n" data-for="rv-n"></span></label>
+      <label for="rv-r">You are<select id="rv-r"><option>Family member of a resident</option><option>Resident</option><option>Former resident's family</option><option>Toured the home</option></select></label></div>
+      <fieldset><legend>Your rating</legend><div class="stars" id="rv-s">${[1,2,3,4,5].map(n=>`<label><input type="radio" name="rv-s" value="${n}"><span aria-hidden="true">★</span><span class="sr-only">${n} star${n>1?'s':''}</span></label>`).join('')}</div><span class="fmsg" id="m-rv-s" role="alert"></span></fieldset>
+      <label for="rv-t">Your experience<textarea id="rv-t" rows="4" aria-describedby="m-rv-t" placeholder="What was the care, food, staff and communication like?"></textarea><span class="fmsg" id="m-rv-t" data-for="rv-t"></span></label>
+      <label class="ck"><input type="checkbox" id="rv-c"><span>This is my own experience. I haven't shared any resident's health details.</span></label><span class="fmsg" id="m-rv-c" role="alert"></span>
+      <button class="pri" type="submit">Send review</button><p class="note">JIGS CARE checks every review before it appears, and the home can reply.</p></form>`}).firstElementChild);
+    clearBad($('#revF'));
+    $('#revF').addEventListener('submit',async ev=>{ev.preventDefault();const f=ev.target;const star=f.querySelector('input[name=rv-s]:checked');
+      $('#m-rv-s').textContent=star?'':'Choose a rating.';$('#m-rv-c').textContent=$('#rv-c').checked?'':'Please confirm before sending.';
+      const ok=validate(f,[['rv-n',v=>v.length<2?'Enter your first name.':''],['rv-t',v=>v.length<30?'Write at least a few sentences (30+ characters).':'']]);
+      if(!ok||!star||!$('#rv-c').checked){if(!RM.matches)shake(f);return}
+      const sent=await sendForm('review',{home:h.name,license:h.lic,name:$('#rv-n').value.trim(),relationship:$('#rv-r').value,rating:star.value,review:$('#rv-t').value.trim(),consent:'yes'});
+      const box=document.createElement('div');box.className=sent?'done':'warn';box.setAttribute('role','status');
+      box.innerHTML=sent?'<b>Thank you.</b> We check every review before it appears, usually within 3 business days.':'Your review couldn\'t be sent right now. Please try again later.';
+      if(sent)f.replaceWith(box);else{f.querySelector('.warn')?.remove();f.prepend(box)}enter(box)})});
+  clearBad($('#tourF'));
+  $('#tourF').addEventListener('submit',e=>{e.preventDefault();const f=e.target;if(f.dataset.busy)return;
+    if(!validate(f,[['tn',v=>v.length<2?'Enter your name.':''],['tp',v=>/^\S+@\S+\.\S+$/.test(v)||(v.match(/\d/g)||[]).length>=10?'':'Enter a phone number (10 digits) or an email address.'],['td',v=>v&&v<new Date().toISOString().slice(0,10)?'Pick today or a future date.':'']]))return;
+    f.dataset.busy='1';const btn=f.querySelector('button[type=submit]');btn.textContent='Sending…';
+    sendForm('tour-request',{home:h.name,license:h.lic,home_phone:h.phone,name:$('#tn').value.trim(),contact:$('#tp').value.trim(),message:$('#tw').value.trim(),date:$('#td').value}).then(ok=>{
+      const box=document.createElement('div');box.className=ok?'done':'warn';box.setAttribute('role','status');
+      box.innerHTML=ok?`<b>Tour request sent.</b> We pass it to ${esc(h.name)} within one business day, and they contact you directly.`
+        :`<b>Your request couldn't be sent right now.</b> Please call the home directly at <a href="tel:${(h.phone.match(/\d/g)||[]).join('')}">${esc(h.phone)}</a>, or try again later.`;
+      if(ok)f.replaceWith(box);else{delete f.dataset.busy;btn.textContent='Request tour';f.querySelector('.warn')?.remove();f.prepend(box)}enter(box)})});
+  scrollTo(0,0);
+}
+
+/* Send a form to JIGS CARE through Netlify Forms. Returns true only if Netlify accepted it.
+   Anywhere Netlify Forms isn't running (a preview, another host), it returns false and the page says so. */
+async function sendForm(name,data){
+  const body=new URLSearchParams({'form-name':name,'bot-field':'',...data}).toString();
+  try{const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});return r.ok}catch(e){return false}
+}
+const maskPhone=p=>{const d=(p||'').match(/\d/g)||[];return d.length>=4?'ending in '+d.slice(-4).join(''):''};
+const cl={step:0,home:null};
+/* Map: loads Leaflet only when someone opens it. Shows up to 600 of the current results. */
+let MAP=null,MLAYER=null,mapOn=false;
+function loadLeaflet(){return window.L?Promise.resolve():new Promise((ok,no)=>{const c=document.createElement('link');c.rel='stylesheet';c.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';document.head.append(c);
+  const s=document.createElement('script');s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';s.onload=ok;s.onerror=no;document.head.append(s)})}
+async function drawMap(){if(!mapOn)return;const l=filtered().filter(h=>h.lat&&h.lon),cap=600,pts=l.slice(0,cap);
+  $('#mapNote').textContent=l.length>cap?`Showing ${cap} of ${l.length.toLocaleString()} homes. Choose a county or city to see them all.`:`${l.length.toLocaleString()} home${l.length===1?'':'s'} on the map. Pins show the licensed address.`;
+  try{await loadLeaflet()}catch(e){$('#map').innerHTML='<p class="note" style="padding:16px">The map couldn\'t load. Check your connection and try again.</p>';return}
+  if(!MAP){MAP=L.map('map',{scrollWheelZoom:false});L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(MAP)}
+  if(MLAYER)MLAYER.remove();MLAYER=L.layerGroup(pts.map(h=>L.circleMarker([h.lat,h.lon],{radius:7,color:'#036A70',weight:2,fillColor:own(h)&&own(h).open?'#FA746E':'#06A3A8',fillOpacity:.85})
+    .bindPopup(`<b>${esc(h.name)}</b><br>${esc(h.city)} · ${h.beds} beds<br><a href="#home-${h.lic}">View home</a>`))).addTo(MAP);
+  if(pts.length)MAP.fitBounds(pts.map(h=>[h.lat,h.lon]),{padding:[24,24],maxZoom:13});else MAP.setView([47.4,-120.5],6);
+  setTimeout(()=>MAP.invalidateSize(),60)}
+function setView(m){mapOn=m;$('#vList').setAttribute('aria-pressed',!m);$('#vMap').setAttribute('aria-pressed',m);$('#mapBox').hidden=!m;$('#list').hidden=m;if(m){$('#more').hidden=true;drawMap()}else renderList()}
+/* Reviews: published ones live in reviews.json (added after JIGS CARE checks them):
+   [{"lic":"754405","name":"Maria","rel":"Family member of a resident","rating":5,"text":"…","date":"2026-12-01","reply":"…"}] */
+let REVIEWS=[];
+const stars=n=>'★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n);
+function reviewsHTML(h){const l=REVIEWS.filter(r=>String(r.lic)===String(h.lic));
+  const avg=l.length?(l.reduce((a,r)=>a+r.rating,0)/l.length):0;
+  return (l.length?`<p class="ravg"><span class="rst" aria-hidden="true">${stars(Math.round(avg))}</span> <b>${avg.toFixed(1)}</b> from ${l.length} famil${l.length>1?'ies':'y'}</p>`+l.map(r=>`<div class="rev"><p class="rst" aria-label="${r.rating} out of 5">${stars(r.rating)}</p><p>${esc(r.text)}</p><p class="note">${esc(r.name)} · ${esc(r.rel||'')} · ${esc(r.date||'')}</p>${r.reply?`<p class="rrep"><b>Reply from the home:</b> ${esc(r.reply)}</p>`:''}</div>`).join('')
+    :'<p style="margin:0 0 10px">No reviews yet. Reviews come from families and residents, and JIGS CARE checks each one before it appears.</p>')+
+   '<button type="button" class="ghost" data-rev>Share your experience</button>'}
+function stepsUI(){[...$('#steps').children].forEach((li,i)=>li.className=i<cl.step?'past':i===cl.step?'on':'')}
+function claimRender(){
+  stepsUI();document.title='Claim Your Adult Family Home Listing | JIGS CARE';
+  const b=$('#claimBody'),h=cl.home;
+  if(!HOMES.length){b.innerHTML=SKELS(1);return}
+  b.style.pointerEvents='none';clearTimeout(cl.t);cl.t=setTimeout(()=>{b.style.pointerEvents=''},350);
+  setTimeout(()=>enter(b.firstElementChild),0);
+  if(cl.step===0){
+    b.innerHTML=`<div class="panel"><label for="cs">Home name, city, ZIP or license number<input id="cs" autocomplete="off" placeholder="Type at least 2 characters"></label><div class="pick" id="cp"></div></div>`;
+    const draw=()=>{const q=$('#cs').value.toLowerCase().trim();
+      if(q.length<2){$('#cp').innerHTML='<p class="note">Search the state list of licensed homes.</p>';return}
+      const l=HOMES.filter(x=>!own(x)&&x.hay.includes(q)).slice(0,8);
+      $('#cp').innerHTML=l.length?l.map(x=>`<button data-id="${x.lic}"><span><b>${esc(x.name)}</b><br><span class="meta">${esc(x.addr)}, ${esc(x.city)} · License ${x.lic}</span></span><span class="meta">Select →</span></button>`).join(''):'<p class="note">No unclaimed home matches. Try your license number.</p>'};
+    $('#cs').addEventListener('input',draw);draw();
+    $('#cp').addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;cl.home=BY[t.dataset.id];cl.step=1;claimRender()});
+  }else if(cl.step===1){
+    const m=maskPhone(h.phone);
+    b.innerHTML=`<div class="panel"><h3>${esc(h.name)}</h3><p class="meta">License ${h.lic} · ${esc(h.addr)}, ${esc(h.city)}</p>
+     <p>To protect families, <b>only the licensed provider can claim a home.</b> JIGS CARE confirms every claim by calling the phone number on the state license record${m?` (${m})`:''}, usually within 2 business days.</p>
+     <form id="vf" novalidate>
+      <div class="row2"><label for="vn">Your name<input id="vn" required autocomplete="name" aria-describedby="m-vn"><span class="fmsg" id="m-vn" data-for="vn"></span></label>
+      <label for="vr">Your role<select id="vr"><option>Licensed provider (owner)</option><option>Entity representative</option><option>Resident manager</option></select></label></div>
+      <div class="row2"><label for="ve">Email<input id="ve" type="email" required autocomplete="email" aria-describedby="m-ve"><span class="fmsg" id="m-ve" data-for="ve"></span></label>
+      <label for="vt">Best time to call the home<select id="vt"><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Any time</option></select></label></div>
+      <p class="fmsg" id="vmsg" role="status"></p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="ghost" type="button" id="vb">Not my home</button><button class="pri" type="submit">Send my claim</button></div></form></div>`;
+    $('#vb').onclick=()=>{cl.step=0;claimRender()};
+    clearBad($('#vf'));
+    $('#vf').addEventListener('submit',async e=>{e.preventDefault();const f=e.target;if(f.dataset.busy)return;
+      if(!validate(f,[['vn',v=>v.length<2?'Enter your name.':''],['ve',v=>/^\S+@\S+\.\S+$/.test(v)?'':'Enter an email address so we can reach you.']]))return;
+      f.dataset.busy='1';const btn=f.querySelector('button[type=submit]');btn.textContent='Sending…';
+      const ok=await sendForm('claim-request',{home:h.name,license:h.lic,dshs_phone:h.phone,name:$('#vn').value.trim(),role:$('#vr').value,email:$('#ve').value.trim(),best_time:$('#vt').value});
+      delete f.dataset.busy;btn.textContent='Send my claim';
+      if(!ok){$('#vmsg').innerHTML='Your claim couldn\'t be sent right now. Try again, or email <a href="mailto:hello@jigscare.com">hello@jigscare.com</a> with your license number.';return}
+      cl.sent=true;cl.step=2;claimRender()});
+  }else if(cl.step===2){
+    b.innerHTML=`<div class="panel"><h3>Tell families about ${esc(h.name)}</h3>
+     <p class="note" style="margin-bottom:12px">Licensed for ${h.beds} residents. Specialties from your state license: ${[...h.spec].map(k=>SPEC[k]).join(', ')||'none listed'}.</p>
+     <form id="pf" novalidate>
+     <label for="pd">Description<textarea id="pd" required aria-describedby="m-pd" placeholder="Your setting, staff, meals, activities and what makes your home special"></textarea><span class="fmsg" id="m-pd" data-for="pd"></span></label>
+     <div class="row2"><label for="po">Open beds now<input id="po" type="number" min="0" max="${h.beds}" value="0" aria-describedby="m-po"><span class="fmsg" id="m-po" data-for="po"></span></label><label for="pl">Languages spoken<input id="pl" placeholder="English, Swahili"></label></div>
+     <div class="row2"><label for="plo">Monthly cost from ($)<input id="plo" type="number" min="0" step="100" placeholder="6000"></label><label for="phi">Monthly cost to ($)<input id="phi" type="number" min="0" step="100" placeholder="8000" aria-describedby="m-phi"><span class="fmsg" id="m-phi" data-for="phi"></span></label></div>
+     <label for="pp">Photos<input id="pp" type="file" accept="image/*" multiple></label><div class="tags" id="pv"></div>
+     <button class="pri" type="submit">Publish my listing</button></form></div>`;
+    $('#pp').addEventListener('change',e=>{$('#pv').innerHTML=[...e.target.files].slice(0,6).map(f=>`<img src="${URL.createObjectURL(f)}" alt="" style="width:88px;height:66px;object-fit:cover;border-radius:8px">`).join('')});
+    clearBad($('#pf'));
+    $('#pf').addEventListener('submit',e=>{e.preventDefault();
+      if(!validate(e.target,[['pd',v=>v.length<20?'Write at least a sentence (20+ characters) so families know your home.':''],['po',v=>v===''||(+v>=0&&+v<=h.beds&&Number.isInteger(+v))?'':`Enter a whole number from 0 to ${h.beds}.`],['phi',v=>v&&$('#plo').value&&+v<+$('#plo').value?'The upper cost must be at least the lower cost.':'']]))return;
+      const lo=+$('#plo').value||0,hi=Math.max(lo,+$('#phi').value||lo);
+      OWN[h.lic]={desc:$('#pd').value.trim(),open:Math.max(0,Math.min(h.beds,+$('#po').value||0)),lang:$('#pl').value.trim(),lo,hi,at:Date.now(),pending:true};saveOwn();cl.step=3;claimRender()});
+  }else{
+    const o=own(h);
+    b.innerHTML=`<div class="panel" style="text-align:center">
+     <svg class="badge" viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="68" fill="none" stroke="var(--line)" stroke-width="8"/><circle class="ring" cx="75" cy="75" r="68" fill="none" stroke="#FA746E" stroke-width="8" stroke-linecap="round" transform="rotate(-90 75 75)"/><path class="tick" d="M48 77 L67 96 L104 57" fill="none" stroke="var(--ok)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+     <h2>Claim received for ${esc(h.name)}</h2>
+     <p class="lede" style="margin-inline:auto">We'll call the phone number on the state record${maskPhone(h.phone)?` (${maskPhone(h.phone)})`:''} within 2 business days. Once confirmed, your listing shows as <b>Owner-verified</b>${o&&o.open?`, and your ${o.open} open bed${o.open>1?'s':''} show first in ${esc(h.county)} County searches`:''}. Meanwhile you can use your owner tools.</p>
+     <p class="note" style="margin-bottom:14px">Your profile details are saved on this device until your claim is confirmed.</p>
+     <div style="text-align:left;max-width:560px;margin:0 auto 18px" class="panel">${meterHTML(h,o,true)}</div>
+     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button onclick="location.hash='home-${h.lic}'">View my listing</button><button class="pri" onclick="location.hash='providers'">Post a caregiver job (coming next)</button></div></div>`;
+  }
+}
+
+/* JIGS Quality: ten published standards. Only the first few can be met by data we hold today;
+   the rest need an application and JIGS review, so they show as to-do, never as passed. */
+const QC=[
+ {t:'Licensed and in good standing',d:'An active DSHS adult family home license, with no suspension or revocation pending.',how:'Checked automatically against DSHS records'},
+ {t:'Owner-verified listing',d:'The licensed owner has claimed the listing, and JIGS CARE confirmed it by calling the phone on the state record.',how:'Checked when the home is claimed'},
+ {t:'Clean recent inspection record',d:'No DSHS enforcement action (civil fine, stop-placement order or license condition) in the last 24 months, and every citation corrected on time.',how:'JIGS reviews the home’s DSHS inspection reports'},
+ {t:'Background checks current',d:'Every caregiver has a DSHS fingerprint check within 120 days of starting care and a name and date of birth check renewed every two years.',how:'Tracked in the background check tracker, spot-checked by JIGS'},
+ {t:'Training current',d:'Every caregiver’s required Washington training and certification is complete or on schedule.',how:'Owner uploads records, spot-checked by JIGS'},
+ {t:'Liability insurance on file',d:'A current certificate of liability insurance.',how:'Owner uploads the certificate'},
+ {t:'Honest, current listing',d:'Open beds and a monthly price range posted and updated within the last 30 days.',how:'Checked automatically from the listing'},
+ {t:'Person-centered profile',d:'The listing describes daily routines, meals, activities, languages spoken and cultural practices, so families can judge fit.',how:'Checked when the owner completes the profile'},
+ {t:'Responsive to families',d:'Replies to at least 90% of tour requests within one business day, measured over 90 days.',how:'Measured automatically from tour requests'},
+ {t:'Families recommend it',d:'At least five reviews from verified families, averaging 4.5 out of 5 or better.',how:'Reviews only from families who toured or placed a loved one'}];
+const qStatus=(h,o)=>QC.map((c,i)=>{
+  if(i===0)return['met','Active license in DSHS records'];
+  if(i===1)return o?['met','Claimed and verified']:['todo','Claim the listing'];
+  if(i===6)return o&&o.lo?['met',`${o.open} open bed${o.open===1?'':'s'} and price range posted`]:['todo','Post your open beds and monthly price range'];
+  if(i===7)return o&&o.desc&&o.desc.length>=80&&o.lang?['met','Profile and languages added']:['todo',o&&o.desc?'Add more detail and the languages you speak (80+ characters)':'Write your profile and list languages'];
+  return['todo',['','','Apply so JIGS can review your DSHS reports','Add your caregivers to the tracker','Upload training records','Upload your insurance certificate','','','Answer tour requests within one business day','Invite families who toured to leave a review'][i]];
+});
+const QI={met:'<svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="var(--ok)"/><path d="m6.5 11.5 3 3 6-6.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+ todo:'<svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9.5" fill="none" stroke="var(--line)" stroke-width="3"/></svg>'};
+function meterHTML(h,o,mine){
+  const S=qStatus(h,o),n=S.filter(s=>s[0]==='met').length,pct=Math.round(n/QC.length*100);
+  return `<div class="meter"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline"><b>${mine?'Your path to JIGS Quality':'Progress toward JIGS Quality'}</b><span class="note">${n} of ${QC.length} standards met</span></div>
+   <div class="mbar" role="progressbar" aria-valuemin="0" aria-valuemax="${QC.length}" aria-valuenow="${n}" aria-label="JIGS Quality standards met"><i style="width:${pct}%"></i></div>
+   <ul class="mlist">${S.map((s,i)=>`<li class="${s[0]}">${QI[s[0]]}<span><b>${QC[i].t}</b><small>${s[0]==='met'?s[1]:(mine?'Next: ':'')+s[1]}</small></span></li>`).join('')}</ul>
+   ${mine?'':'<p class="note" style="margin:4px 0 0">The badge appears only when all ten are met and reviewed.</p>'}</div>`;
+}
+$('#qcrit').innerHTML=QC.map(c=>`<li><b>${c.t}</b><p>${c.d}</p><span class="qhow">${c.how}</span></li>`).join('');
+
+const slug=c=>c.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+function route(){
+  const v=location.hash.slice(1)||'find';
+  document.querySelectorAll('.view').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',v.startsWith(a.dataset.v)||(a.dataset.v==='find'&&v.startsWith('county-'))));
+  document.querySelectorAll('.bnav a').forEach(a=>{const b=a.dataset.b,on=b==='find'?(v==='find'||v.startsWith('county-')||v.startsWith('home-')):b==='jobs'?(v==='jobs'||v==='caregiver'):b==='providers'?['providers','owner','occupancy','post-job','readiness','claim','quality'].some(x=>v.startsWith(x)):v===b;on?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});
+  if(v.startsWith('home-')){$('#v-home').classList.add('on');if(HOMES.length)renderHome(v.slice(5));else $('#v-home').innerHTML=`<div class="grid">${SKELS(2)}</div>`}
+  else if(v.startsWith('claim')){$('#v-claim').classList.add('on');if(!HOMES.length)return;const h=BY[v.split('-')[1]];if(h&&!own(h)){cl.home=h;cl.step=1}else if(cl.step===3||!cl.home){cl.step=0;cl.home=null}claimRender()}
+  else if(v.startsWith('county-')){$('#v-find').classList.add('on');
+    const c=HOMES.length?[...new Set(HOMES.map(h=>h.county))].find(x=>slug(x)===v.slice(7)):'';
+    if(c){Object.assign(st,{county:c,q:'',type:'A',shown:PAGE,browse:true});$('#county').value=c;$('#q').value='';$('#type').value='A';fCountSync()}
+    renderList();if(c){document.title=`Adult Family Homes in ${c} County, WA – Verified | JIGS CARE`;setTimeout(()=>$('#count').scrollIntoView({block:'start'}),0)}}
+  else if(TOOLS[v]){$('#v-'+v).classList.add('on');document.title=TOOLS[v][0]+' | JIGS CARE';TOOLS[v][1]()}
+  else if(v==='quality'){$('#v-quality').classList.add('on');document.title='JIGS Quality Standards for Adult Family Homes | JIGS CARE'}
+  else if(v==='providers'){$('#v-providers').classList.add('on');document.title='For Adult Family Home Owners | JIGS CARE'}
+  else{$('#v-find').classList.add('on');renderList()}
+  enter(document.querySelector('.view.on'));
+}
+
+function boot(d){
+  AS_OF=fmtDate(d.meta.asOf);
+  HOMES=d.rows.map(r=>{const h={lic:r[0],type:r[1],name:cleanName(r[2]),addr:r[3],city:r[4],zip:r[5],county:r[6],phone:r[7],beds:r[8],spec:r[9],medicaid:!!r[10],contracts:r[11],lat:r[12],lon:r[13]};h.hay=(h.name+' '+h.city+' '+h.zip+' '+h.lic+' '+h.addr).toLowerCase();h.sk=sortKey(h.name);h.rot=rot(String(h.lic));BY[h.lic]=h;return h});
+  const counties=[...new Set(HOMES.map(h=>h.county))].sort();
+  const cc={};HOMES.forEach(h=>{if(h.type==='A')cc[h.county]=(cc[h.county]||0)+1});
+  $('#ctyList').innerHTML=counties.filter(c=>cc[c]).map(c=>`<li><a href="#county-${slug(c)}">${esc(c)}<span>${cc[c].toLocaleString('en-US')}</span></a></li>`).join('');
+  $('#ownCount').textContent=`${HOMES.filter(h=>h.type==='A'&&!own(h)).length.toLocaleString('en-US')} homes`;
+  $('#county').innerHTML+=counties.map(c=>`<option>${esc(c)}</option>`).join('');
+  const nA=HOMES.filter(h=>h.type==='A').length,nL=HOMES.length-nA,beds=HOMES.filter(h=>h.type==='A').reduce((s,h)=>s+h.beds,0);
+  $('#stats').removeAttribute('aria-hidden');
+  $('#stats').innerHTML=`<div><i class="si t"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4.5 20 11"/><path d="M6 9.6V19a1 1 0 0 0 1 1h3.5v-5h3v5H17a1 1 0 0 0 1-1V9.6"/></svg></i><b>${nA.toLocaleString('en-US')}</b>adult family homes</div><div><i class="si c"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18V7"/><path d="M3 14h18v4"/><path d="M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"/><circle cx="7" cy="11" r="1.8"/></svg></i><b>${beds.toLocaleString('en-US')}</b>adult family home beds</div><div><i class="si g"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="1.5"/><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10.5 20v-3h3v3"/></svg></i><b>${nL.toLocaleString('en-US')}</b>assisted living communities</div><div><i class="si s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4-5 2v14l5-2 6 2 5-2V4l-5 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg></i><b>${counties.length}</b>counties</div>`;
+  hlRender();
+  $('#src').textContent=`Source: Washington DSHS long-term care residential care open data, as of ${AS_OF}.`;
+  route();
+}
+
+$('#q').addEventListener('input',e=>{st.q=e.target.value;st.shown=PAGE;clearTimeout(tq);tq=setTimeout(scheduleList,140)});
+$('#q').addEventListener('keydown',e=>{if(e.key==='Enter'){clearTimeout(tq);scheduleList()}});
+$('#county').addEventListener('change',e=>{st.county=e.target.value;st.shown=PAGE;scheduleList()});
+$('#type').addEventListener('change',e=>{st.type=e.target.value;st.shown=PAGE;scheduleList()});
+$('#sort').addEventListener('change',e=>{st.sort=e.target.value;scheduleList()});
+$('#budget').addEventListener('change',e=>{st.budget=+e.target.value||0;st.shown=PAGE;scheduleList()});
+$('#bedsmin').addEventListener('change',e=>{st.bedsMin=+e.target.value||0;st.shown=PAGE;scheduleList()});
+/* Filters drawer: one search bar up top; county, type, budget and beds live here. */
+function fCountSync(){const n=[$('#county').value,$('#type').value!=='A'?1:'',$('#budget').value,$('#bedsmin').value].filter(Boolean).length,c=$('#fCount');c.textContent=n;c.hidden=!n;$('#fBtn').classList.toggle('on',!!n)}
+function fOpen(v){$('#fDrawer').hidden=!v;$('#fBtn').setAttribute('aria-expanded',v);if(v&&!RM.matches)enter($('#fDrawer'));if(v)$('#county').focus()}
+$('#fBtn').addEventListener('click',()=>fOpen($('#fDrawer').hidden));
+$('#fDone').addEventListener('click',()=>{fOpen(false);$('#count').scrollIntoView({block:'start',behavior:RM.matches?'auto':'smooth'})});
+$('#fClear').addEventListener('click',()=>{for(const [id,v] of [['county',''],['type','A'],['budget',''],['bedsmin','']]){const el=$('#'+id);if(el.value!==v){el.value=v;el.dispatchEvent(new Event('change'))}}fCountSync()});
+['county','type','budget','bedsmin'].forEach(id=>$('#'+id).addEventListener('change',fCountSync));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#fDrawer').hidden){fOpen(false);$('#fBtn').focus()}});
+/* keep the slim search bar just under the sticky header */
+{const hh=()=>document.documentElement.style.setProperty('--hh',(document.querySelector('header')?.offsetHeight||64)+'px');hh();addEventListener('resize',hh)}
+$('#more').addEventListener('click',()=>{if(!st.browse&&$('#list').children.length<=LANDN){st.browse=true;st.shown=PAGE;renderList();return}st.shown=Math.min(st.shown+PAGE*2,LAST.length);renderList(true)});
+$('#chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;const k=b.dataset.k;
+  if(k==='medicaid')st.medicaid=!st.medicaid;else if(k==='ver')st.ver=!st.ver;else if(k==='bil')st.bil=!st.bil;else{const s=k.slice(2);st.spec.has(s)?st.spec.delete(s):st.spec.add(s)}st.shown=PAGE;syncChips();scheduleList()});
+const openCard=e=>{const c=e.target.closest('.card');if(c)location.hash='home-'+c.dataset.id};
+$('#list').addEventListener('click',e=>{const a=e.target.closest('[data-act]');if(a){a.dataset.act==='clear'?resetFilters():load();return}openCard(e)});
+$('#list').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.target.closest('[data-fav]'))openCard(e)});
+addEventListener('hashchange',route);
+let loading=false;
+function load(){
+  if(loading)return;loading=true;
+  const list=$('#list');list.setAttribute('aria-busy','true');list.innerHTML=SKELS(6);$('#count').textContent='Loading licensed homes…';
+  Promise.all([fetch('homes.json').then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}),fetch('photos.json').then(r=>r.ok?r.json():null).catch(()=>null),fetch('reviews.json').then(r=>r.ok?r.json():[]).catch(()=>[])]).then(([d,ph,rv])=>{PH=ph;REVIEWS=Array.isArray(rv)?rv:[];loading=false;boot(d)}).catch(()=>{loading=false;
+    list.removeAttribute('aria-busy');$('#count').textContent='';$('#stats').innerHTML='';
+    list.innerHTML=stateBox('error','We couldn’t load the home list','Your connection may have dropped, or the listing data didn’t arrive. Nothing you entered was lost.','<button class="pri" type="button" data-act="retry">Try again</button>');enter(list.firstElementChild);
+    if(!$('#v-find').classList.contains('on')){$('#v-home').innerHTML=stateBox('error','We couldn’t load this home','The listing data didn’t arrive. Go back and try again.','<button class="pri" type="button" onclick="location.hash=\'find\'">Back to homes</button>');$('#claimBody').innerHTML=$('#v-home').innerHTML}});
+}
+document.addEventListener('click',e=>{if(!e.target.closest('[data-home]'))return;
+  Object.assign(st,{q:'',county:'',type:'A',medicaid:false,ver:false,bil:false,budget:0,bedsMin:0,sort:'fair',shown:PAGE,browse:false});st.spec.clear();$('#budget').value='';$('#bedsmin').value='';
+  $('#q').value='';$('#county').value='';$('#type').value='A';$('#sort').value='fair';syncChips();fCountSync();
+  if(location.hash==='#find'){renderList();scrollTo(0,0)}});
+/* background check tracker: WNDOB valid 2 years (WAC 388-76-10165); FBI fingerprint check within 120 days of starting care (DSHS BCCU) */
+{
+  const DAY=864e5,today=new Date(new Date().toDateString());
+  const iso=d=>new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+  const ago=n=>iso(new Date(today-n*DAY));
+  const fmt=s=>new Date(s+'T00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  const add=(s,days)=>new Date(new Date(s+'T00:00').getTime()+days*DAY);
+  const addY=(s,y)=>{const d=new Date(s+'T00:00');d.setFullYear(d.getFullYear()+y);return d};
+  const left=d=>Math.round((d-today)/DAY);
+  let rows=[
+    {n:'Grace M.',s:ago(105),w:ago(112),f:''},
+    {n:'Peter K.',s:ago(630),w:ago(640),f:ago(560)},
+    {n:'Amina H.',s:ago(700),w:ago(694),f:ago(640)},
+    {n:'Luis R.',s:ago(176),w:ago(183),f:''}];
+  const stat=r=>{
+    const wd=addY(r.w,2),wl=left(wd);
+    const W=wl<0?['late',`Expired ${fmt(iso(wd))}`]:wl<=60?['soon',`Renew by ${fmt(iso(wd))}`]:['ok',`Valid to ${fmt(iso(wd))}`];
+    let F;if(r.f)F=['ok','Cleared, valid indefinitely'];else{const fd=add(r.s,120),fl=left(fd);F=fl<0?['late',`Overdue since ${fmt(iso(fd))}`]:fl<=30?['soon',`Due ${fmt(iso(fd))}`]:['ok',`Pending, due ${fmt(iso(fd))}`]}
+    const acts=[];if(F[0]==='late')acts.push(['late','Past the 120-day deadline: check fingerprint status with BCCU today']);else if(F[0]==='soon')acts.push(['soon',`Fingerprint results due in ${left(add(r.s,120))} days`]);
+    if(W[0]==='late')acts.push(['late','Submit a new name and DOB check now']);else if(W[0]==='soon')acts.push(['soon',`Renew name and DOB check in ${wl} days`]);
+    return{W,F,acts,worst:acts.some(a=>a[0]==='late')?2:acts.length?1:0};
+  };
+  const chip=([k,t])=>`<span class="st st-${k}">${t}</span>`;
+  function draw(){
+    const S=rows.map(r=>({r,...stat(r)})).sort((a,b)=>b.worst-a.worst||a.r.n.localeCompare(b.r.n));
+    const late=S.filter(x=>x.worst===2).length,soon=S.filter(x=>x.worst===1).length,ok=S.length-late-soon;
+    $('#trkSum').innerHTML=[late&&chip(['late',`${late} overdue`]),soon&&chip(['soon',`${soon} due soon`]),ok&&chip(['ok',`${ok} up to date`])].filter(Boolean).join('')||'<span class="note">No caregivers yet. Add one below.</span>';
+    $('#trkBody').innerHTML=S.map(x=>`<tr><td class="nm" data-l="Caregiver">${esc(x.r.n)}</td><td data-l="Started care"><span class="dt">${fmt(x.r.s)}</span></td>
+      <td data-l="Name and DOB"><div>${chip(x.W)}<small>Checked ${fmt(x.r.w)}</small></div></td><td data-l="Fingerprint"><div>${chip(x.F)}${x.r.f?`<small>Cleared ${fmt(x.r.f)}</small>`:''}</div></td>
+      <td data-l="Next action"><div>${x.acts.length?x.acts.map(a=>`<div>${chip([a[0],a[0]==='late'?'Now':'Soon'])} ${a[1]}</div>`).join(''):'<span class="note">Nothing due</span>'}</div></td>
+      <td><button type="button" class="rm" data-rm="${rows.indexOf(x.r)}" aria-label="Remove ${esc(x.r.n)}">Remove</button></td></tr>`).join('');
+  }
+  $('#trkBody').addEventListener('click',e=>{const b=e.target.closest('[data-rm]');if(!b)return;rows.splice(+b.dataset.rm,1);draw()});
+  clearBad($('#trkF'));
+  $('#trkF').addEventListener('submit',e=>{e.preventDefault();const f=e.target,t=iso(today);
+    if(!validate(f,[['tk-n',v=>v.length<2?'Enter the caregiver’s name.':''],['tk-s',v=>!v?'Enter the date they started care.':v>t?'Start date can’t be in the future.':''],
+      ['tk-w',v=>!v?'Enter the date of their name and DOB check.':v>t?'Check date can’t be in the future.':''],['tk-f',v=>v&&v>t?'Cleared date can’t be in the future.':'']]))return;
+    rows.push({n:$('#tk-n').value.trim(),s:$('#tk-s').value,w:$('#tk-w').value,f:$('#tk-f').value});f.reset();draw();enter($('#trkBody').lastElementChild);$('#tk-n').focus()});
+  draw();
+}
+/* ───── owner + caregiver tools (prototype: everything lives in this browser) ───── */
+const LS={get:(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],TIMES=['Morning','Evening','Overnight'];
+const ckHTML=(name,vals,sel)=>vals.map(v=>`<label class="ck"><input type="checkbox" name="${name}" value="${v}" ${sel&&sel.includes(v)?'checked':''}><span>${v}</span></label>`).join('');
+const ckVals=name=>[...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i=>i.value);
+const myHome=()=>{const lic=Object.keys(OWN).find(l=>BY[l]);return lic?{h:BY[lic],o:OWN[lic],real:true}:{h:{lic:'',name:'Sample Home (demo)',city:'Seattle',county:'King',beds:6,type:'A'},o:LS.get('jc-demo-home',{open:1,priv:1,shared:0}),real:false}};
+const SAMPLE_JOBS=[
+  {id:'s1',title:'Caregiver, evenings',home:'Sample Home A (demo)',city:'Seattle',payMin:22,payMax:26,pay:'$22–$26/hour',type:'Part-time',cred:'HCA or NAC',bonus:'$500 sign-on bonus',times:['Evening'],days:['Mon','Tue','Wed','Thu','Fri'],sample:true,featured:true},
+  {id:'s2',title:'Weekend caregiver',home:'Sample Home B (demo)',city:'Tacoma',payMin:20,payMax:24,pay:'$20–$24/hour',type:'Part-time',cred:'Training provided',times:['Morning','Evening'],days:['Sat','Sun'],sample:true},
+  {id:'s3',title:'Live-in caregiver',home:'Sample Home C (demo)',city:'Spokane',payMin:24,payMax:28,pay:'$24–$28/hour',type:'Live-in',cred:'HCA',times:['Morning','Evening','Overnight'],days:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],sample:true}];
+const payTxt=(a,b)=>a?(b&&b>a?`$${a}–$${b}/hour`:`$${a}/hour`):'';
+const JF={q:'',cred:'',type:'',time:''};
+let INQ=[{id:1,family:'Sample family A',date:'Nov 14, 2026',looking:'1 private room',status:'New'},{id:2,family:'Sample family B',date:'Nov 12, 2026',looking:'Shared room',status:'Replied'}];
+
+function jobFormReset(){const f=$('#jobF');$('#jobPanel').querySelectorAll('.done').forEach(d=>d.remove());f.reset();f.hidden=false;$('#jb-times').innerHTML=ckHTML('jbt',TIMES);$('#jb-days').innerHTML=ckHTML('jbd',DAYS);$('#m-jb-days').textContent='';f.querySelectorAll('.bad').forEach(x=>x.classList.remove('bad'));f.querySelectorAll('.fmsg').forEach(m=>m.textContent='')}
+function ownerView(){
+  const {h,o,real}=myHome(),jobs=LS.get('jc-jobs',[]).length,newInq=INQ.filter(i=>i.status==='New').length;
+  $('#ownerBody').innerHTML=`<div class="panel"><h3>Your home</h3>
+    <p style="margin:0"><b>${esc(h.name)}</b>${real?'':' <span class="note">(sample: claim your home to see it here)</span>'}</p>
+    <p class="meta" style="margin:4px 0 0">${esc(h.city)}, WA${real?` · License ${h.lic} checked ${AS_OF} (source: DSHS)`:''}</p>
+    <p style="margin:10px 0 0">Open beds posted: <b>${o&&o.open?o.open:0}</b>${o&&o.open&&real?` <span class="note">(updated ${ago(o.at)})</span>`:''}</p>${o&&o.expired&&real?`<p class="warn" style="margin-top:10px"><b>Your ${o.expired} opening${o.expired>1?'s':''} expired</b> after ${FRESH_DAYS} days without an update, so families no longer see ${o.expired>1?'them':'it'}. <a href="#occupancy">Confirm your open beds</a></p>`:''}${real&&o&&o.pending&&!o.verified?`<p class="note" style="margin-top:10px">Claim pending: we're confirming it with a call to the phone on the state record.</p>`:''}</div>
+   <div class="panel"><h3>Your home's photo</h3>
+    ${real?`<div class="opic">${photo(h,640,1)}</div>
+    <p style="margin:10px 0 6px">${ownerPhoto(h)?'Families see this photo on your listing.':'Families now see a <b>sample photo</b>. Replace it with a real photo of your home.'}</p>
+    <p class="note" style="margin:0 0 10px">Outside of the home or empty rooms only. Don't include residents unless they have given written consent.</p>
+    <label class="upl"><input type="file" id="opFile" accept="image/jpeg,image/png,image/webp"><span>${ownerPhoto(h)?'Change photo':'Upload a real photo'}</span></label>
+    ${ownerPhoto(h)?'<button type="button" class="ghost" id="opDel" style="margin-left:8px">Remove photo</button>':''}
+    <p class="fmsg" id="opMsg" role="status"></p>`:'<p class="note" style="margin:0">Claim your home to replace the sample photo with a real one.</p>'}</div>
+   <div class="panel"><h3>Featured placement</h3><p style="margin:0 0 10px">Show your home in the moving Featured homes strip at the top of search. Paid add-on, $49/month, always marked as paid.</p>
+    ${real?`<button type="button" id="featBtn" class="${o.featured?'ghost':'pri'}">${o.featured?'Turn off featuring':'Feature my home'}</button><p class="note" style="margin-top:8px">${o.featured?'Your home is in the Featured homes strip.':'Test version: no payment is taken.'}</p>`:'<p class="note" style="margin:0">Claim your home first.</p>'}</div>
+   <div class="panel"><h3>Quick actions</h3><div class="tools">
+    <a href="#occupancy"><b>Update available beds</b><span>Occupancy & inquiries</span></a>
+    <a href="#post-job"><b>Post a caregiver job</b><span>${jobs?`${jobs} posted so far`:'Free for caregivers to apply'}</span></a>
+    <a href="#readiness"><b>Review readiness checklist</b><span>Profile items and the nine DSHS policy areas</span></a>
+    <a href="#providers"><b>Background check tracker</b><span>BCCU deadlines for every caregiver</span></a></div></div>
+   <div class="panel"><h3>Recent activity</h3><p style="margin:0">${newInq} new family inquir${newInq===1?'y':'ies'} · ${jobs} job${jobs===1?'':'s'} posted</p><p class="note" style="margin-top:6px">Inquiries shown are samples until the live system is connected.</p></div>
+   ${real?'':'<p><button class="pri" type="button" onclick="location.hash=\'claim\'">Claim your home to use your own listing</button></p>'}`;
+  $('#opFile')?.addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const k=Object.keys(OWN).find(l=>BY[l]);
+    if(!/^image\/(jpeg|png|webp)$/.test(f.type)){$('#opMsg').textContent='Choose a JPG, PNG or WebP photo.';return}
+    if(f.size>15e6){$('#opMsg').textContent='That photo is over 15 MB. Choose a smaller one.';return}
+    const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{const W=Math.min(1280,im.width),H=Math.round(im.height*W/im.width);
+      const c=document.createElement('canvas');c.width=W;c.height=H;c.getContext('2d').drawImage(im,0,0,W,H);
+      OWN[k].photo=c.toDataURL('image/jpeg',.82);try{localStorage.setItem('jc-claims2',JSON.stringify(OWN))}catch(err){delete OWN[k].photo;$('#opMsg').textContent='This browser ran out of space for the photo. Try a smaller one.';return}
+      hlRender();ownerView();$('#opMsg').textContent='Photo saved. Families now see it on your listing.'};im.onerror=()=>{$('#opMsg').textContent='That file couldn’t be read as a photo.'};im.src=rd.result};rd.readAsDataURL(f)});
+  $('#opDel')?.addEventListener('click',()=>{const k=Object.keys(OWN).find(l=>BY[l]);delete OWN[k].photo;saveOwn();hlRender();ownerView()});
+  $('#featBtn')?.addEventListener('click',()=>{const k=Object.keys(OWN).find(l=>BY[l]);if(!k)return;OWN[k].featured=!OWN[k].featured;saveOwn();hlRender();ownerView()});
+}
+
+function occupancyView(){
+  const {h,o,real}=myHome();
+  $('#oc-p').value=o.priv??o.open??0;$('#oc-s').value=o.shared??0;$('#oc-n').value=o.notes||'';$('#occMsg').textContent=real?`Editing ${h.name}.`:'Editing the sample home. Claim your home to post real openings.';
+  drawInq();
+}
+function drawInq(){
+  $('#inqList').innerHTML=INQ.map(i=>`<div class="inq" data-i="${i.id}"><div><b>${esc(i.family)}</b> · ${i.date}</div><div>Looking for: ${esc(i.looking)}</div>
+    <div>Status: <span class="st st-${i.status==='New'?'soon':i.status==='Closed'?'late':'ok'}">${i.status}</span></div>
+    ${i.replying?`<label>Your reply<textarea rows="2" data-reply></textarea></label><div class="acts"><button type="button" class="pri" data-a="send">Send reply</button><button type="button" class="ghost" data-a="cancel">Cancel</button></div>`:
+     i.status==='Closed'?'':`<div class="acts"><button type="button" data-a="reply">Reply</button><button type="button" class="ghost" data-a="close">Mark closed</button></div>`}</div>`).join('');
+}
+
+function readinessView(){
+  const {h,o,real}=myHome(),saved=LS.get('jc-ready',{});
+  const fresh=(Date.now()-new Date(AS_OF).getTime())<365*864e5;
+  const items=[
+    ['lic','License number and source displayed on profile',real,'Automatic once your home is claimed'],
+    ['date','Verification date is current (within 12 months)',fresh,`Last checked ${AS_OF}`],
+    ['photos','Home photos updated in the last 6 months',null,'Photo uploads come with the live system'],
+    ['svc','Services and languages listed accurately',!!(o&&o.desc&&o.lang),'Add them in your profile'],
+    ['open','Advertised openings match actual availability',null,'Confirm in Occupancy & inquiries'],
+    ['contact','Contact preferences set for family inquiries',null,'Phone or email for tour requests']];
+  $('#rdDate').textContent=AS_OF;
+  $('#rdList').innerHTML=items.map(([k,t,auto,hint])=>{const on=auto===true||(auto!==true&&saved[k]);return `<label class="chk"><input type="checkbox" data-rd="${k}" ${on?'checked':''} ${auto===true?'disabled':''}><span>${t}<small>${hint}${auto===true?' · done automatically':''}</small></span></label>`}).join('');
+  const notes=LS.get('jc-policy',{});
+  $('#polList').innerHTML=POLICIES.map((p,i)=>`<div class="pol"><label for="pol${i}"><b>${i+1}. ${p[0]}</b></label><small>${p[1]} · ${p[2]}</small><textarea id="pol${i}" rows="3" data-pol="${i}" placeholder="Your notes for this policy (for your own use only)">${esc(notes[i]||'')}</textarea></div>`).join('');
+  $('#polMsg').textContent='';
+}
+const POLICIES=[
+ ['Notice of Rights and Services','How residents are told their rights and the services the home provides','WAC 388-76-10530'],
+ ['Accepting Medicaid as payment','Policy on accepting Medicaid clients and related procedures','WAC 388-76-10522'],
+ ['Medication disposal','Safe process for disposing of unused or discontinued medications','WAC 388-76-10490'],
+ ['Response to medical emergencies','Steps staff take when a medical emergency occurs','WAC 388-76-10250'],
+ ['Preventing and responding to abandonment, abuse, neglect, exploitation or financial exploitation','How the home prevents and responds to suspected abuse of any resident','WAC 388-76-10675'],
+ ['Disclosure of Services (form DSHS 10-508)','Clear disclosure of the services offered and any limits','WAC 388-76-10532'],
+ ['Emergency and Disaster Plan','Plan for emergencies, disasters and evacuations','WAC 388-76-10830'],
+ ['Respiratory Protection Program','Program for respiratory protection when required','Labor and Industries rules'],
+ ['Succession Plan','Plan for continuity if the provider can no longer run the home','WAC 388-76-10201']];
+const polText=()=>{const n=LS.get('jc-policy',{});return 'JIGS CARE — my notes on the nine DSHS 27-223 policy areas (personal notes, not official policies)\n\n'+POLICIES.map((p,i)=>`${i+1}. ${p[0]} (${p[2]})\n${n[i]||'(no notes)'}\n`).join('\n')};
+const savePol=()=>{const n={};document.querySelectorAll('[data-pol]').forEach(t=>{if(t.value.trim())n[t.dataset.pol]=t.value});return LS.set('jc-policy',n)};
+
+function caregiverView(){
+  const p=LS.get('jc-cg',{days:[],times:[]});
+  $('#cp-n').value=p.name||'';$('#cp-c').value=p.city||'';$('#cp-t').value=p.cred??'Home Care Aide';$('#cp-i').value=p.issuer||'';$('#cp-x').value=p.expiry||'';$('#cp-w').value=p.weekend||'Flexible';$('#cp-h').value=p.hours||'Open';
+  $('#cp-days').innerHTML=ckHTML('cpd',DAYS,p.days);$('#cp-times').innerHTML=ckHTML('cpt',TIMES,p.times);
+}
+function jobsView(){
+  const p=LS.get('jc-cg',null),all=[...LS.get('jc-jobs',[]),...SAMPLE_JOBS];
+  const fits=j=>p&&p.days.some(d=>j.days.includes(d))&&(!j.times.length||p.times.some(t=>j.times.includes(t)));
+  const q=JF.q.toLowerCase().trim();
+  const shown=all.filter(j=>(!q||(j.city+' '+j.title+' '+j.home).toLowerCase().includes(q))&&(!JF.cred||(j.cred||'').includes(JF.cred)||(JF.cred==='Training provided'&&j.cred==='Training provided'))&&(!JF.type||j.type===JF.type)&&(!JF.time||j.times.includes(JF.time)))
+    .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||fits(b)-fits(a)||(b.payMax||0)-(a.payMax||0));
+  $('#jobList').innerHTML=(p?'':'<div class="panel jprompt"><p style="margin:0"><b>Set your availability</b> to see which jobs fit your schedule. <a href="#caregiver" style="color:var(--teal);font-weight:700">Create your free profile</a></p></div>')+
+   (shown.length?shown.map(j=>`<article class="panel job${j.featured?' jfeat':''}">${j.featured?'<span class="jbadge">★ Featured</span>':''}<h3>${esc(j.title)}${j.sample?' <span class="note">(sample)</span>':''}</h3>
+    <div><b>${esc(j.home)}</b> · ${esc(j.city)}, WA</div>
+    <div class="jpills"><span class="jp pay">${esc(j.pay||'Pay not listed')}</span>${j.type?`<span class="jp">${esc(j.type)}</span>`:''}${j.cred?`<span class="jp cred">${esc(j.cred)}</span>`:''}${j.bonus?`<span class="jp bonus">${esc(j.bonus)}</span>`:''}</div>
+    <div><b>Shifts:</b> ${j.times.join(', ')||'Not specified'} · <b>Days:</b> ${j.days.join(', ')}</div>${j.duties?`<div class="note">${esc(j.duties)}</div>`:''}${j.notes?`<div class="note">${esc(j.notes)}</div>`:''}
+    ${fits(j)?'<div class="match"><b>Availability match</b><br>This job\'s shifts overlap with your preferred days and times.</div>':''}
+    <div class="acts" data-job="${j.id}" data-home="${esc(j.home)}" data-title="${esc(j.title)}"><button class="pri" type="button" data-apply>Apply, free</button></div></article>`).join('')
+    :'<div class="panel jprompt"><p style="margin:0">No jobs match these filters. Try clearing one.</p></div>');
+}
+
+const TOOLS0={owner:['Owner Dashboard',ownerView],occupancy:['Occupancy & Inquiries',occupancyView],'post-job':['Post a Caregiver Job',jobFormReset],
+  readiness:['Inspection Readiness',readinessView],caregiver:['Caregiver Profile — Always Free',caregiverView],jobs:['Caregiver Jobs in Washington Adult Family Homes',jobsView],privacy:['Privacy',()=>{}]};
+
+clearBad($('#occF'));
+$('#occF').addEventListener('submit',e=>{e.preventDefault();const {h,o,real}=myHome();
+  const max=h.beds||8,chk=v=>v===''?'':(!Number.isInteger(+v)||+v<0?'Enter a whole number, 0 or more.':+v>max?`This home is licensed for ${max}.`:'');
+  if(!validate(e.target,[['oc-p',chk],['oc-s',v=>chk(v)||(+v+(+$('#oc-p').value||0)>max?`Private rooms plus shared beds can't exceed the licensed ${max}.`:'')]]))return;
+  const priv=+$('#oc-p').value||0,shared=+$('#oc-s').value||0,notes=$('#oc-n').value.trim();
+  if(real){Object.assign(OWN[h.lic],{open:priv+shared,priv,shared,notes,at:Date.now()});delete OWN[h.lic].expired;saveOwn()}else LS.set('jc-demo-home',{open:priv+shared,priv,shared,notes});
+  $('#occMsg').textContent=`Saved: ${priv+shared} open bed${priv+shared===1?'':'s'} posted${real?' on your listing':' (sample home)'}.`;enter($('#occMsg'))});
+$('#inqList').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const i=INQ.find(x=>x.id===+b.closest('[data-i]').dataset.i),a=b.dataset.a;
+  if(a==='reply')i.replying=true;else if(a==='cancel')i.replying=false;else if(a==='close'){i.status='Closed';i.replying=false}
+  else if(a==='send'){const t=b.closest('.inq').querySelector('[data-reply]');if(!t.value.trim()){shake(t);t.focus();return}i.status='Replied';i.replying=false}
+  drawInq();const el=$(`[data-i="${i.id}"]`);enter(el);if(a==='reply')el.querySelector('textarea').focus()});
+
+clearBad($('#jobF'));
+$('#jobF').addEventListener('submit',e=>{e.preventDefault();const f=e.target;
+  const days=ckVals('jbd');$('#m-jb-days').textContent=days.length?'':'Pick at least one day.';
+  const ok=validate(f,[['jb-t',v=>v.length<3?'Enter a job title.':''],['jb-c',v=>v.length<2?'Enter the city.':''],['jb-pmin',v=>!(+v>0)?'Enter the starting hourly pay.':''],['jb-pmax',v=>v&&+v<+$('#jb-pmin').value?'The top of the range must be at least the starting pay.':'']]);
+  if(!days.length){if(!RM.matches)shake($('#jb-days'));if(ok)$('#jb-days input').focus();return}if(!ok)return;
+  const {h}=myHome(),pmin=+$('#jb-pmin').value,pmax=Math.max(pmin,+$('#jb-pmax').value||pmin),job={id:'j'+Date.now(),title:$('#jb-t').value.trim(),city:$('#jb-c').value.trim(),payMin:pmin,payMax:pmax,pay:payTxt(pmin,pmax),type:$('#jb-type').value,cred:$('#jb-cred').value,bonus:$('#jb-bonus').value.trim(),featured:$('#jb-feat').checked,duties:$('#jb-d').value.trim(),notes:$('#jb-n').value.trim(),times:ckVals('jbt'),days,home:h.name,lic:h.lic,at:Date.now()};
+  sendForm('job-post',{home:job.home,license:h.lic||'',title:job.title,city:job.city,type:job.type,credential:job.cred,pay:job.pay,bonus:job.bonus,shifts:job.times.join(', '),days:job.days.join(', '),duties:job.duties,notes:job.notes,featured:job.featured?'yes':'no'}).then(sent=>{const n=$('#jobSent');if(n)n.textContent=sent?'Sent to JIGS CARE for a quick check.':'Saved on this device. It couldn\'t be sent to JIGS CARE right now.'});
+  const list=LS.get('jc-jobs',[]);list.unshift(job);LS.set('jc-jobs',list);
+  const box=document.createElement('div');box.className='done';box.setAttribute('role','status');box.innerHTML=`<b>Job posted.</b> “${esc(job.title)}” shows in caregiver job search on this device. <span id="jobSent">Sending to JIGS CARE…</span> <a href="#jobs" style="font-weight:700">See it in job search</a> · <button type="button" class="rm" data-another style="min-height:0;padding:0">Post another</button>`;
+  f.hidden=true;f.after(box);enter(box)});
+$('#jobPanel').addEventListener('click',e=>{if(e.target.closest('[data-another]')){jobFormReset();$('#jb-t').focus()}});
+$('#jobF').addEventListener('change',e=>{if(e.target.name==='jbd')$('#m-jb-days').textContent=''});
+
+$('#rdList').addEventListener('change',e=>{const c=e.target.closest('[data-rd]');if(!c)return;const s=LS.get('jc-ready',{});s[c.dataset.rd]=c.checked;LS.set('jc-ready',s)});
+let polT=0;$('#polList').addEventListener('input',()=>{clearTimeout(polT);polT=setTimeout(()=>{if(savePol())$('#polMsg').textContent='Saved in this browser.'},600)});
+$('#polSave').addEventListener('click',()=>{$('#polMsg').textContent=savePol()?'Notes saved in this browser only.':'Couldn\'t save: this browser is blocking storage. Use Copy notes instead.'});
+$('#polCopy').addEventListener('click',async()=>{savePol();try{await navigator.clipboard.writeText(polText());$('#polMsg').textContent='Copied. Paste into an email or document.'}catch(e){$('#polMsg').textContent='Copy was blocked by this browser. Use Download notes instead.'}});
+$('#polDl').addEventListener('click',()=>{savePol();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([polText()],{type:'text/plain'}));a.download='JIGS-CARE-AFH-Policy-Notes.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);$('#polMsg').textContent='Download started. If nothing happened, use Copy notes.'});
+$('#polPrint').addEventListener('click',()=>{savePol();try{window.print()}catch(e){$('#polMsg').textContent='Printing is blocked here. Use Copy notes.'}});
+
+clearBad($('#cgP'));
+$('#cgP').addEventListener('submit',e=>{e.preventDefault();const f=e.target;
+  const days=ckVals('cpd'),times=ckVals('cpt');$('#m-cp-avail').textContent=days.length&&times.length?'':'Pick at least one day and one time of day so we can match jobs.';
+  const ok=validate(f,[['cp-n',v=>v.length<2?'Enter your name.':''],['cp-c',v=>v.length<2?'Enter your city.':'']]);
+  if(!(days.length&&times.length)){if(ok)(days.length?$('#cp-times input'):$('#cp-days input')).focus();return}if(!ok)return;
+  LS.set('jc-cg',{name:$('#cp-n').value.trim(),city:$('#cp-c').value.trim(),cred:$('#cp-t').value,issuer:$('#cp-i').value.trim(),expiry:$('#cp-x').value,days,times,weekend:$('#cp-w').value,hours:$('#cp-h').value});
+  $('#cpMsg').innerHTML='<b>Profile saved.</b> Prototype: saved only in this browser. <a href="#jobs" style="color:var(--teal);font-weight:700">See jobs that fit your schedule</a>';enter($('#cpMsg'))});
+$('#cgP').addEventListener('change',e=>{if(e.target.name==='cpd'||e.target.name==='cpt')$('#m-cp-avail').textContent=''});
+
+$('#jobFilters').addEventListener('input',()=>{JF.q=$('#jf-q').value;JF.cred=$('#jf-cred').value;JF.type=$('#jf-type').value;JF.time=$('#jf-time').value;jobsView()});
+$('#jobList').addEventListener('click',e=>{const b=e.target.closest('[data-apply]');if(!b)return;const box=b.parentElement,cg=LS.get('jc-cg',null);
+  box.innerHTML=`<form class="apf" novalidate><div class="row2"><label>Your name<input name="n" required value="${esc(cg?cg.name:'')}" autocomplete="name"></label><label>Phone or email<input name="c" required></label></div>
+   <label>Your credential<select name="cr"><option>HCA</option><option>NAC</option><option>LPN or RN</option><option>In training</option><option>None yet</option></select></label>
+   <label>Short note (optional)<textarea name="m" rows="2" placeholder="Your experience and when you can start"></textarea></label>
+   <p class="fmsg" role="status"></p><button class="pri" type="submit">Send application, free</button></form>`;
+  const f=box.querySelector('form');if(cg&&cg.cred)f.cr.value=/NAC/.test(cg.cred)?'NAC':/HCA/.test(cg.cred)?'HCA':f.cr.value;enter(f);f.n.focus();
+  f.addEventListener('submit',async ev=>{ev.preventDefault();const msg=f.querySelector('.fmsg');
+    if(f.n.value.trim().length<2||!(/^\S+@\S+\.\S+$/.test(f.c.value)||(f.c.value.match(/\d/g)||[]).length>=10)){msg.textContent='Enter your name and a phone number or email.';if(!RM.matches)shake(f);return}
+    msg.textContent='Sending…';const ok=await sendForm('job-application',{job:box.dataset.title,home:box.dataset.home,name:f.n.value.trim(),contact:f.c.value.trim(),credential:f.cr.value,message:f.m.value.trim()});
+    if(ok){box.innerHTML='<div class="done" role="status"><b>Application sent.</b> JIGS CARE passes it to the home within one business day. Applying is always free.</div>';enter(box.firstElementChild)}
+    else msg.innerHTML='Your application couldn\'t be sent right now. Try again in a moment, or email <a href="mailto:hello@jigscare.com">hello@jigscare.com</a>.'})});
+
+/* larger-text mode for older adults, remembered on this device */
+{const t=$('#tsz'),on=LS.get('jc-big',false);const set=v=>{document.documentElement.classList.toggle('big',v);t.setAttribute('aria-pressed',v);t.textContent=v?'A− Normal text':'A+ Larger text'};set(on);t.addEventListener('click',()=>{const v=!document.documentElement.classList.contains('big');set(v);LS.set('jc-big',v)})}
+
+const TOOLS=Object.assign(TOOLS0,{saved:['Saved Homes',savedView],guide:['How to Choose an Adult Family Home in Washington',()=>{}]});
+$('#vList').addEventListener('click',()=>setView(false));$('#vMap').addEventListener('click',()=>setView(true));
+$('#savedList').addEventListener('click',openCard);
+$('#savedList').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.target.closest('[data-fav]'))openCard(e)});
+syncSaved();
+chips();route();load();
+}
+</script>
+</body>
+</html>

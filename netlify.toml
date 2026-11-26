@@ -1,0 +1,36 @@
+# Netlify settings. The app is plain HTML; the build step only generates the search-engine pages
+# (/homes/…) and sitemap.xml from homes.json. Python's standard library is all it needs.
+[build]
+  publish = "."
+  command = "python3 scripts/build_pages.py"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/homes.json"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/photos.json"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/homes/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
